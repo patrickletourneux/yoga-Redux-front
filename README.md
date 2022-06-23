@@ -1,3 +1,23 @@
+
+information
+
+add postinstall script following
+https://github.com/Semantic-Org/Semantic-UI/issues/7073
+
+
+{
+ "scripts": {
+   "postinstall": "semantic-ui-css-patch"
+ }
+}
+
+to debug semantic ui css
+
+
+and run it 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
