@@ -29,8 +29,12 @@ function App() {
     const filteredPositionsSanskrit = data.filter((item) => {
       return item.sanskrit_name.toLowerCase().includes(searchText.toLowerCase())
     });
-    console.log('filteredPositionsSanskrit ',filteredPositionsSanskrit)
-    setfilteredPositions([...filteredPositionsSanskrit]);
+    const filteredPositionsEnglish = data.filter((item) => {
+      return item.english_name.toLowerCase().includes(searchText.toLowerCase())
+    });
+    const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit,...filteredPositionsEnglish];
+    const filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)]
+    setfilteredPositions([...filteredPositionsSanskritEnglishwithoutDouble]);
   };
 
   const handleAddFavoritesPositions = (event) => {
@@ -41,7 +45,7 @@ function App() {
     // delete double
     positions = [...new Set(positions)];
     setfavoritesPositions(positions);
-    setsearchText('');
+    // setsearchText('');
     console.log('favoritesPositions ', favoritesPositions);
   };
 
@@ -84,6 +88,7 @@ function App() {
               homePage
               onSubmitSearchText={handlesubmitSearchText}
               onSearchTextChange={handlesearchTextChange}
+              searchText={searchText}
             />
           )}
         />

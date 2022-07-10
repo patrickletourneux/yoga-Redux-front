@@ -16,11 +16,11 @@ export default function Formular({
     className="form" onSubmit={onSubmitSearchText}
     >
       <Form.Field>
-      <label>Search Sanskrit</label>
+      <label>Search Sanskrit/English</label>
       <input 
         className="form__input"
         type="text"
-        placeholder={searchText}
+        value={searchText}
         onChange={onSearchTextChange} />
       </Form.Field>
       <Button 
