@@ -13,6 +13,19 @@ import './styles.css';
 function App() {
   const [favoritesPositions, setfavoritesPositions] = useState([]);
   const [detailCard, setdetailCard] = useState([]);
+  const [searchText, setsearchText] = useState('');
+
+
+  const handlesearchTextChange = (event) => {
+    console.log('handlesearchTextChange')
+    event.preventDefault();
+    setsearchText(event.target.value);
+  };
+  const handlesubmitSearchText = (event) => {
+    console.log('handlesubmitSearchText')
+    event.preventDefault();
+    console.log(searchText);
+  };
 
   const handleAddFavoritesPositions = (event) => {
     console.log('clic add');
@@ -64,6 +77,8 @@ function App() {
               addToFavoritesPositions={handleAddFavoritesPositions}
               seeDetailCardOnClick={handleDetailCard}
               homePage
+              onSubmitSearchText={handlesubmitSearchText}
+              onSearchTextChange={handlesearchTextChange}
             />
           )}
         />

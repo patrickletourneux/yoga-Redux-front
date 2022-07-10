@@ -1,8 +1,9 @@
 import React from 'react';
+import Form from '../Form';
 // import Card from 'src/components/Card';
 import { useEffect } from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // sanskrit_name: 'Navasana',
@@ -17,8 +18,11 @@ function Listcard({
   favoritesPage,
   homePage,
   detailPage,
+  onSubmitSearchText,
+  onSearchTextChange,
+  searchText
 }) {
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     console.log('LISTCARD NOUVEAU RENDU');
@@ -26,6 +30,14 @@ function Listcard({
 
   return (
     <div className="marginbot">
+      {homePage && 
+      (<Form
+        onSubmitSearchText={onSubmitSearchText}
+        onSearchTextChange={onSearchTextChange}
+        searchText={searchText}
+      >
+      </Form>)
+      }
       <Card.Group
         itemsPerRow={3}
         stackable
