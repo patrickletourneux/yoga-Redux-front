@@ -16,7 +16,7 @@ export default function Formular({
     className="form" onSubmit={onSubmitSearchText}
     >
       <Form.Field>
-      <label>Search</label>
+      <label>Search Sanskrit</label>
       <input 
         className="form__input"
         type="text"

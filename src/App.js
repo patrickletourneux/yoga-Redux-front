@@ -2,7 +2,7 @@
 import Header from './components/Header';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import data from './data/yoga_api';
 // import reactLogo from './react-logo.svg';
@@ -12,6 +12,7 @@ import './styles.css';
 // == Composant
 function App() {
   const [favoritesPositions, setfavoritesPositions] = useState([]);
+  const [filteredPositions, setfilteredPositions] = useState(data);
   const [detailCard, setdetailCard] = useState([]);
   const [searchText, setsearchText] = useState('');
 
@@ -25,6 +26,11 @@ function App() {
     console.log('handlesubmitSearchText')
     event.preventDefault();
     console.log(searchText);
+    const filteredPositionsSanskrit = data.filter((item) => {
+      return item.sanskrit_name.toLowerCase().includes(searchText.toLowerCase())
+    });
+    console.log('filteredPositionsSanskrit ',filteredPositionsSanskrit)
+    setfilteredPositions([...filteredPositionsSanskrit]);
   };
 
   const handleAddFavoritesPositions = (event) => {
@@ -34,8 +40,8 @@ function App() {
     positions.push(position);
     // delete double
     positions = [...new Set(positions)];
-
     setfavoritesPositions(positions);
+    setsearchText('');
     console.log('favoritesPositions ', favoritesPositions);
   };
 
@@ -55,12 +61,11 @@ function App() {
     console.log('detailCard ', detailCard);
   };
 
-  // useEffect(() => {
-  //   console.log('APP NOUVEAU RENDU');
-  //   console.log('useEffect favoritesPositions ', favoritesPositions);
-  //   console.log('detailCard ', detailCard);
-  //   console.log('APP END NOUVEAU RENDU');
-  // }, []);
+  useEffect(() => {
+    console.log('APP NOUVEAU RENDU');
+    console.log('filteredPositions ',filteredPositions);
+ 
+  });
 
   return (
     <div className="app">
@@ -73,7 +78,7 @@ function App() {
           path=""
           element={(
             <Listcard
-              data={data}
+              data={filteredPositions}
               addToFavoritesPositions={handleAddFavoritesPositions}
               seeDetailCardOnClick={handleDetailCard}
               homePage
