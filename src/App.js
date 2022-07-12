@@ -1,42 +1,54 @@
 // == Import
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { changeSearchText } from './actions';
+
 import Header from './components/Header';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import data from './data/yoga_api';
+// import data from './data/yoga_api';
 // import reactLogo from './react-logo.svg';
 
 import './styles.css';
 
 // == Composant
 function App() {
+  const dispatch = useDispatch();
+
+  const allPositions = useSelector((state) => state.allPositions);
+  const searchText = useSelector((state) => state.searchText);
+
+  const [filteredPositions, setfilteredPositions] = useState(allPositions);
   const [favoritesPositions, setfavoritesPositions] = useState([]);
-  const [filteredPositions, setfilteredPositions] = useState(data);
   const [detailCard, setdetailCard] = useState([]);
-  const [searchText, setsearchText] = useState('');
+  // const [searchText, setsearchText] = useState('');
 
 
   const handleDeleteFilter = (event) => {
     console.log('handleDeleteFilter');
-    setfilteredPositions(data);
-    setsearchText('');
+    setfilteredPositions(allPositions);
+    const action = changeSearchText('');
+    dispatch(action);
+    // setsearchText('');
   }
-  
   
   const handlesearchTextChange = (event) => {
     console.log('handlesearchTextChange');
     event.preventDefault();
-    setsearchText(event.target.value);
+    // setsearchText(event.target.value);
+    const action = changeSearchText(event.target.value);
+    dispatch(action);
   };
   const handlesubmitSearchText = (event) => {
     console.log('handlesubmitSearchText');
     event.preventDefault();
     console.log(searchText);
-    const filteredPositionsSanskrit = data.filter((item) => {
+    const filteredPositionsSanskrit = allPositions.filter((item) => {
       return item.sanskrit_name.toLowerCase().includes(searchText.toLowerCase())
     });
-    const filteredPositionsEnglish = data.filter((item) => {
+    const filteredPositionsEnglish = allPositions.filter((item) => {
       return item.english_name.toLowerCase().includes(searchText.toLowerCase())
     });
     const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit,...filteredPositionsEnglish];
@@ -46,7 +58,7 @@ function App() {
 
   const handleAddFavoritesPositions = (event) => {
     console.log('clic add');
-    const position = data.find((item) => item.id.toString() === event.target.id);
+    const position = allPositions.find((item) => item.id.toString() === event.target.id);
     let positions = [...favoritesPositions];
     positions.push(position);
     // delete double
@@ -67,7 +79,7 @@ function App() {
   const handleDetailCard = (event) => {
     // changeDetailCard
     console.log('clic detail ', event.target.id);
-    const position = data.find((item) => item.id.toString() === event.target.id);
+    const position = allPositions.find((item) => item.id.toString() === event.target.id);
     setdetailCard(position);
     console.log('detailCard ', detailCard);
   };

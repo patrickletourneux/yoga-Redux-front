@@ -1,9 +1,10 @@
-// import { CHANGE_MESSAGE, ADD_MESSAGE_TO_MESSAGES } from '../actions';
+import { CHANGE_SEARCH_TEXT } from '../actions';
 
 import data from '../data/yoga_api';
 
 const initialState = {
-  data : data,
+  allPositions : data,
+  searchText :"",
 };
 
 // le reducer est une fonction qui prend le state courant et l'action courante
@@ -12,13 +13,13 @@ const initialState = {
 // traducteur d'intention en modification de state
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    // case CHANGE_MESSAGE: {
-    //   console.log('reducer CHANGE_MESSAGE');
-    //   return {
-    //     ...state,
-    //     message: action.message,
-    //   };
-    // }
+    case CHANGE_SEARCH_TEXT: {
+      console.log('reducer CHANGE_SEARCH_TEXT');
+      return {
+        ...state,
+        searchText: action.searchText,
+      };
+    }
     default:
       return state;
   }
