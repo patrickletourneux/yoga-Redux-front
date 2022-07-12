@@ -6,25 +6,33 @@ import { Card, Button, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-// sanskrit_name: 'Navasana',
-//   english_name: 'Boat',
-//   img_url: 'https://www.dropbox.com/s/4m64ztxkj8a4dab/boatstraightlegs.svg?raw=1',
+import { useDispatch } from 'react-redux';
+import { 
+  addFavoritePosition,
+  deleteFavoritePosition,
+  changeDetailPosition,
+} from '../../actions';
+
 
 function Listcard({
   data,
-  addToFavoritesPositions,
-  deleteToFavoritesPositions,
-  seeDetailCardOnClick,
   favoritesPage,
   homePage,
-  detailPage,
-  onSubmitSearchText,
-  onSearchTextChange,
-  searchText,
-  filteredPositions,
-  handleDeleteFilter
 }) {
-  // console.log(data);
+  const dispatch = useDispatch();
+  
+  const handleAddFavoritesPositions = (event) => {
+    const action = addFavoritePosition(event.target.id);
+    dispatch(action);
+  };
+  const handleDeleteFavoritesPositions = (event) => {
+    const action = deleteFavoritePosition(event.target.id);
+    dispatch(action);
+  };
+  const handleDetailCard = (event) => {
+    const action = changeDetailPosition(event.target.id);
+    dispatch(action);
+  };
 
   useEffect(() => {
     console.log('LISTCARD NOUVEAU RENDU');
@@ -33,13 +41,7 @@ function Listcard({
   return (
     <div className="marginbot">
       {homePage && 
-      (<Form
-        onSubmitSearchText={onSubmitSearchText}
-        onSearchTextChange={onSearchTextChange}
-        searchText={searchText}
-        filteredPositions={filteredPositions}
-        handleDeleteFilter = {handleDeleteFilter}
-      >
+      (<Form>
       </Form>)
       }
       <Card.Group
@@ -59,7 +61,7 @@ function Listcard({
               >
                 <Image
                   src={item.img_url}
-                  onClick={seeDetailCardOnClick}
+                  onClick={handleDetailCard}
                   id={item.id}
                   size="small"
                   centered
@@ -77,7 +79,7 @@ function Listcard({
                   color="black"
                   size="mini"
                   fluid
-                  onClick={deleteToFavoritesPositions}
+                  onClick={handleDeleteFavoritesPositions}
                   id={item.id}
                 >
                   remove favorites
@@ -90,7 +92,7 @@ function Listcard({
                   color="black"
                   size="mini"
                   fluid
-                  onClick={addToFavoritesPositions}
+                  onClick={handleAddFavoritesPositions}
                   id={item.id}
                 >
                   add to favorites
