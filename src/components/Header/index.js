@@ -8,7 +8,7 @@ function Header(props) {
     <div className="marginbot">
       <Head as="h1" textAlign="center">
         <Head.Content>
-          Yoga Reactjs / semantic UI Reactjs
+          <h1>Yoga / React.js / semantic UI React / Redux</h1>
           <Navmenu />
         </Head.Content>
       </Head>

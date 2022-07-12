@@ -58,7 +58,7 @@ export default function Formular() {
        type='submit'
        color='black'
       >
-        Submit
+        Submit filter
       </Button>
     </Form>
   );

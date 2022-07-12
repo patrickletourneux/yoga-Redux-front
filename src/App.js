@@ -50,10 +50,10 @@ function App() {
           path="/singleCard"
           element={(
             <div>
-              details Page of the posture
+              <h3>details Page of the posture</h3> 
               <Listcard
                 data={[detailPosition]}
-                detailPage
+                singleCardPage
               />
             </div>
           )}

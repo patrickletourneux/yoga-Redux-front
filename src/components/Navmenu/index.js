@@ -6,7 +6,6 @@ function Navmenu(props) {
   return (
     <Menu 
       compact 
-      stackable
     >
       <Menu.Item
         name="home"
@@ -24,6 +23,13 @@ function Navmenu(props) {
         as={NavLink}
       >
         favorites
+      </Menu.Item>
+      <Menu.Item
+        name="detail"
+        to="/singleCard"
+        as={NavLink}
+      >
+        detail
       </Menu.Item>
     </Menu>
   );
