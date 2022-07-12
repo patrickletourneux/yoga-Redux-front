@@ -79,7 +79,7 @@ function Listcard({
                 && (
                 <Button
                   type="button"
-                  color="black"
+                  // color="black"
                   size="mini"
                   fluid
                   onClick={handleDeleteFavoritesPositions}
@@ -92,7 +92,7 @@ function Listcard({
                 && (
                 <Button
                   type="button"
-                  color="black"
+                  // color="black"
                   size="mini"
                   fluid
                   onClick={handleAddFavoritesPositions}

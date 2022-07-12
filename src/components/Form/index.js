@@ -48,17 +48,19 @@ export default function Formular() {
         onChange={handlesearchTextChange} />
       </Form.Field>
       <Button 
-       type="button"
-       color = {filteredPositions.length < 48 ? "red":"grey"}
-       onClick={handleDeleteFilter}
-      >
-        Delete filter
-      </Button>
-      <Button 
        type='submit'
-       color='black'
+       size="mini"
+      //  color='black'
       >
         Submit filter
+      </Button>
+      <Button 
+       type="button"
+       color = {filteredPositions.length < 48 ? "red":""}
+       onClick={handleDeleteFilter}
+       size="mini"
+      >
+        Delete filter
       </Button>
     </Form>
   );
