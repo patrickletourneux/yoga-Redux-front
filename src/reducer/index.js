@@ -1,7 +1,9 @@
 import { 
   CHANGE_SEARCH_TEXT , 
   CHANGE_FILTERED_POSITIONS , 
-  INITIALISE_FILTERED_POSITIONS
+  INITIALISE_FILTERED_POSITIONS,
+  ADD_FAVORITE_POSITION,
+  DELETE_FAVORITE_POSITION
 } 
 from '../actions';
 
@@ -11,6 +13,7 @@ const initialState = {
   allPositions : data,
   searchText :"",
   filteredPositions: data,
+  favoritePositions:[]
 };
 
 // le reducer est une fonction qui prend le state courant et l'action courante
@@ -47,6 +50,27 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         filteredPositions : state.allPositions
+      };
+    }
+    case ADD_FAVORITE_POSITION: {
+      console.log('reducer ADD_FAVORITE_POSITION');
+      const position = state.allPositions.find((item) => item.id.toString() === action.id);
+      let positions = [...state.favoritePositions];
+      positions.push(position);
+      // delete double
+      positions = [...new Set(positions)];
+      return {
+        ...state,
+        favoritePositions : positions
+
+      };
+    }
+    case DELETE_FAVORITE_POSITION: {
+      console.log('reducer DELETE_FAVORITE_POSITION');      
+      const positions = state.favoritePositions.filter((item) => item.id.toString() !== action.id);
+      return {
+        ...state,
+        favoritePositions : positions
       };
     }
     default:

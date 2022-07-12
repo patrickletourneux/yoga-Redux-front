@@ -1,7 +1,13 @@
 // == Import
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { changeSearchText , changeFilteredPositions , initialiseFilteredPositions} from './actions';
+import { 
+  changeSearchText , 
+  changeFilteredPositions , 
+  initialiseFilteredPositions , 
+  addFavoritePosition,
+  deleteFavoritePosition,
+} from './actions';
 
 import Header from './components/Header';
 import Listcard from './components/Listcard';
@@ -20,8 +26,9 @@ function App() {
   const allPositions = useSelector((state) => state.allPositions);
   const searchText = useSelector((state) => state.searchText);
   const filteredPositions = useSelector((state) => state.filteredPositions);
+  const favoritesPositions = useSelector((state) => state.favoritePositions);
 
-  const [favoritesPositions, setfavoritesPositions] = useState([]);
+  // const [favoritesPositions, setfavoritesPositions] = useState([]);
   const [detailCard, setdetailCard] = useState([]);
 
 
@@ -47,23 +54,13 @@ function App() {
   };
 
   const handleAddFavoritesPositions = (event) => {
-    console.log('clic add');
-    const position = allPositions.find((item) => item.id.toString() === event.target.id);
-    let positions = [...favoritesPositions];
-    positions.push(position);
-    // delete double
-    positions = [...new Set(positions)];
-    setfavoritesPositions(positions);
-    // setsearchText('');
-    console.log('favoritesPositions ', favoritesPositions);
+    const action = addFavoritePosition(event.target.id);
+    dispatch(action);
   };
 
   const handleDeleteFavoritesPositions = (event) => {
-    // delete the position selected
-    console.log('clic delete');
-    const positions = favoritesPositions.filter((item) => item.id.toString() !== event.target.id);
-    setfavoritesPositions(positions);
-    console.log('favoritesPositions ', favoritesPositions);
+    const action = deleteFavoritePosition(event.target.id);
+    dispatch(action);
   };
 
   const handleDetailCard = (event) => {
