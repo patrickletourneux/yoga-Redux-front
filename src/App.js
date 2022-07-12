@@ -1,7 +1,7 @@
 // == Import
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { changeSearchText } from './actions';
+import { changeSearchText , changeFilteredPositions , initialiseFilteredPositions} from './actions';
 
 import Header from './components/Header';
 import Listcard from './components/Listcard';
@@ -19,41 +19,31 @@ function App() {
 
   const allPositions = useSelector((state) => state.allPositions);
   const searchText = useSelector((state) => state.searchText);
+  const filteredPositions = useSelector((state) => state.filteredPositions);
 
-  const [filteredPositions, setfilteredPositions] = useState(allPositions);
   const [favoritesPositions, setfavoritesPositions] = useState([]);
   const [detailCard, setdetailCard] = useState([]);
-  // const [searchText, setsearchText] = useState('');
 
 
   const handleDeleteFilter = (event) => {
     console.log('handleDeleteFilter');
-    setfilteredPositions(allPositions);
-    const action = changeSearchText('');
-    dispatch(action);
-    // setsearchText('');
+    const action1 = changeSearchText('');
+    dispatch(action1);
+    const action2 = initialiseFilteredPositions();
+    dispatch(action2);
   }
   
   const handlesearchTextChange = (event) => {
     console.log('handlesearchTextChange');
     event.preventDefault();
-    // setsearchText(event.target.value);
     const action = changeSearchText(event.target.value);
     dispatch(action);
   };
   const handlesubmitSearchText = (event) => {
-    console.log('handlesubmitSearchText');
-    event.preventDefault();
-    console.log(searchText);
-    const filteredPositionsSanskrit = allPositions.filter((item) => {
-      return item.sanskrit_name.toLowerCase().includes(searchText.toLowerCase())
-    });
-    const filteredPositionsEnglish = allPositions.filter((item) => {
-      return item.english_name.toLowerCase().includes(searchText.toLowerCase())
-    });
-    const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit,...filteredPositionsEnglish];
-    const filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)]
-    setfilteredPositions([...filteredPositionsSanskritEnglishwithoutDouble]);
+    console.log('handlesubmitSearchText');  
+    const action = changeFilteredPositions(searchText);
+    dispatch(action);
+
   };
 
   const handleAddFavoritesPositions = (event) => {
