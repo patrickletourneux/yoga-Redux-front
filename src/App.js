@@ -17,13 +17,20 @@ function App() {
   const [searchText, setsearchText] = useState('');
 
 
+  const handleDeleteFilter = (event) => {
+    console.log('handleDeleteFilter');
+    setfilteredPositions(data);
+    setsearchText('');
+  }
+  
+  
   const handlesearchTextChange = (event) => {
-    console.log('handlesearchTextChange')
+    console.log('handlesearchTextChange');
     event.preventDefault();
     setsearchText(event.target.value);
   };
   const handlesubmitSearchText = (event) => {
-    console.log('handlesubmitSearchText')
+    console.log('handlesubmitSearchText');
     event.preventDefault();
     console.log(searchText);
     const filteredPositionsSanskrit = data.filter((item) => {
@@ -89,6 +96,8 @@ function App() {
               onSubmitSearchText={handlesubmitSearchText}
               onSearchTextChange={handlesearchTextChange}
               searchText={searchText}
+              filteredPositions={filteredPositions}
+              handleDeleteFilter = {handleDeleteFilter}
             />
           )}
         />

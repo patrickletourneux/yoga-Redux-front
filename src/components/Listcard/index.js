@@ -3,7 +3,7 @@ import Form from '../Form';
 // import Card from 'src/components/Card';
 import { useEffect } from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // sanskrit_name: 'Navasana',
@@ -20,7 +20,9 @@ function Listcard({
   detailPage,
   onSubmitSearchText,
   onSearchTextChange,
-  searchText
+  searchText,
+  filteredPositions,
+  handleDeleteFilter
 }) {
   // console.log(data);
 
@@ -35,6 +37,8 @@ function Listcard({
         onSubmitSearchText={onSubmitSearchText}
         onSearchTextChange={onSearchTextChange}
         searchText={searchText}
+        filteredPositions={filteredPositions}
+        handleDeleteFilter = {handleDeleteFilter}
       >
       </Form>)
       }
@@ -72,6 +76,7 @@ function Listcard({
                   type="button"
                   color="black"
                   size="mini"
+                  fluid
                   onClick={deleteToFavoritesPositions}
                   id={item.id}
                 >
@@ -84,6 +89,7 @@ function Listcard({
                   type="button"
                   color="black"
                   size="mini"
+                  fluid
                   onClick={addToFavoritesPositions}
                   id={item.id}
                 >

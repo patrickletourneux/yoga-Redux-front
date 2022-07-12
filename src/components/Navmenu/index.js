@@ -1,18 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 
 function Navmenu(props) {
-  // state = {}
-
-  // handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  // render() {
-  //   const { activeItem } = this.state
-
   return (
-    <Menu compact stackable>
+    <Menu 
+      compact 
+      stackable
+    >
       <Menu.Item
         name="home"
         to="/"
@@ -27,15 +22,11 @@ function Navmenu(props) {
         name="favorites"
         to="/favorites"
         as={NavLink}
-        // active={activeItem === 'favorites'}
-        // onClick={this.handleItemClick}
       >
         favorites
       </Menu.Item>
     </Menu>
   );
 }
-
-Navmenu.propTypes = {};
 
 export default Navmenu;

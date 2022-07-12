@@ -1,19 +1,19 @@
-import { useState, useRef, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { sendMessage, changeInputValue } from 'src/actions';
-// import './style.scss';
+
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
 
+import './styles.css';
 
 export default function Formular({
   onSubmitSearchText,
   onSearchTextChange,
-  searchText
+  searchText,
+  filteredPositions,
+  handleDeleteFilter
 }) {
   return (
     <Form 
-    className="form" onSubmit={onSubmitSearchText}
+    className="form marginBottom" onSubmit={onSubmitSearchText}
     >
       <Form.Field>
       <label>Search Sanskrit/English</label>
@@ -24,7 +24,18 @@ export default function Formular({
         onChange={onSearchTextChange} />
       </Form.Field>
       <Button 
-       type='submit'>Submit</Button>
+       type="button"
+       color = {filteredPositions.length < 48 ? "red":"grey"}
+       onClick={handleDeleteFilter}
+      >
+        Delete filter
+      </Button>
+      <Button 
+       type='submit'
+       color='black'
+      >
+        Submit
+      </Button>
     </Form>
   );
 }
