@@ -7,6 +7,7 @@ import {
   initialiseFilteredPositions , 
   addFavoritePosition,
   deleteFavoritePosition,
+  changeDetailPosition,
 } from './actions';
 
 import Header from './components/Header';
@@ -14,8 +15,7 @@ import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import data from './data/yoga_api';
-// import reactLogo from './react-logo.svg';
+
 
 import './styles.css';
 
@@ -23,23 +23,18 @@ import './styles.css';
 function App() {
   const dispatch = useDispatch();
 
-  const allPositions = useSelector((state) => state.allPositions);
   const searchText = useSelector((state) => state.searchText);
   const filteredPositions = useSelector((state) => state.filteredPositions);
   const favoritesPositions = useSelector((state) => state.favoritePositions);
+  const detailPosition = useSelector((state) => state.detailPosition);
 
-  // const [favoritesPositions, setfavoritesPositions] = useState([]);
-  const [detailCard, setdetailCard] = useState([]);
-
-
-  const handleDeleteFilter = (event) => {
+  const handleDeleteFilter = () => {
     console.log('handleDeleteFilter');
     const action1 = changeSearchText('');
     dispatch(action1);
     const action2 = initialiseFilteredPositions();
     dispatch(action2);
   }
-  
   const handlesearchTextChange = (event) => {
     console.log('handlesearchTextChange');
     event.preventDefault();
@@ -50,37 +45,26 @@ function App() {
     console.log('handlesubmitSearchText');  
     const action = changeFilteredPositions(searchText);
     dispatch(action);
-
   };
-
   const handleAddFavoritesPositions = (event) => {
     const action = addFavoritePosition(event.target.id);
     dispatch(action);
   };
-
   const handleDeleteFavoritesPositions = (event) => {
     const action = deleteFavoritePosition(event.target.id);
     dispatch(action);
   };
-
   const handleDetailCard = (event) => {
-    // changeDetailCard
-    console.log('clic detail ', event.target.id);
-    const position = allPositions.find((item) => item.id.toString() === event.target.id);
-    setdetailCard(position);
-    console.log('detailCard ', detailCard);
+    const action = changeDetailPosition(event.target.id);
+    dispatch(action);
   };
 
   useEffect(() => {
     console.log('APP NOUVEAU RENDU');
-    console.log('filteredPositions ',filteredPositions);
- 
   });
 
   return (
     <div className="app">
-      {/* <img src={reactLogo} alt="react logo" /> */}
-      {/* <h1>Composant : App</h1> */}
       <Header />
       <Routes>
         <Route
@@ -119,7 +103,7 @@ function App() {
             <div>
               details Page of the posture
               <Listcard
-                data={[detailCard]}
+                data={[detailPosition]}
                 seeDetailCardOnClick={handleDetailCard}
                 detailPage
               />
