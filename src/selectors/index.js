@@ -5,25 +5,22 @@
 // et elle renvoie des données dérivées de ce state
 
 /**
- * fonction qui retourne l'id max d'un tableau d'objet
- * @param {array} items tableau d'objet avec une propriété id
- * @returns id max
+ * fonction qui retourne les positions filtrées par le searchText du state
+ * @returns filteredPositions without Double value
  */
-export function getHighestId(items) {
-  if (items.length <= 0) {
-    return 0;
+export function selectFilteredPositions () {
+  return (state ) => {
+    let filteredPositionsSanskritEnglishwithoutDouble = state.allPositions
+    if (state.searchText !==""){  
+      const filteredPositionsSanskrit = state.allPositions.filter((item) => {
+        return item.sanskrit_name.toLowerCase().includes(state.searchText.toLowerCase())
+      });
+      const filteredPositionsEnglish = state.allPositions.filter((item) => {
+        return item.english_name.toLowerCase().includes(state.searchText.toLowerCase())
+      });
+      const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit,...filteredPositionsEnglish];
+      filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)]
+    }
+    return filteredPositionsSanskritEnglishwithoutDouble
   }
-
-  const ids = items.map((item) => item.id);
-  return Math.max(...ids);
-}
-
-/**
- * fonction qui renvoie un selector, qui détermine si l'auteur du message
- * correspond à l'utilisateur connecté
- * @param {string} author auteur du message
- * @returns selector
- */
-export function isMessageMine(author) {
-  return (state) => author === state.user.pseudo;
 }

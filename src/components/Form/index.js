@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { 
   changeSearchText , 
-  changeFilteredPositions , 
+  // changeFilteredPositions , 
   initialiseFilteredPositions , 
 } from '../../actions';
 
@@ -16,7 +16,7 @@ export default function Formular() {
   const dispatch = useDispatch();
 
   const searchText = useSelector((state) => state.searchText);
-  const filteredPositions = useSelector((state) => state.filteredPositions);
+  // const filteredPositions = useSelector((state) => state.filteredPositions);
   const handleDeleteFilter = () => {
     console.log('handleDeleteFilter');
     const action1 = changeSearchText('');
@@ -30,14 +30,15 @@ export default function Formular() {
     const action = changeSearchText(event.target.value);
     dispatch(action);
   };
-  const handlesubmitSearchText = (event) => {
-    console.log('handlesubmitSearchText');  
-    const action = changeFilteredPositions(searchText);
-    dispatch(action);
-  };
+  // const handlesubmitSearchText = (event) => {
+  //   console.log('handlesubmitSearchText');  
+  //   const action = changeFilteredPositions(searchText);
+  //   dispatch(action);
+  // };
   return (
     <Form 
-    className="form marginBottom" onSubmit={handlesubmitSearchText}
+    className="form marginBottom" 
+    // onSubmit={handlesubmitSearchText}
     >
       <Form.Field>
       <label>Search Sanskrit/English</label>
@@ -47,16 +48,15 @@ export default function Formular() {
         value={searchText}
         onChange={handlesearchTextChange} />
       </Form.Field>
-      <Button 
+      {/* <Button 
        type='submit'
        size="mini"
-      //  color='black'
       >
         Submit filter
-      </Button>
+      </Button> */}
       <Button 
        type="button"
-       color = {filteredPositions.length < 48 ? "red":""}
+       color = {searchText.length > 0 ? "red":""}
        onClick={handleDeleteFilter}
        size="mini"
       >

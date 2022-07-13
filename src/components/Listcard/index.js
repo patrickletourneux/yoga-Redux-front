@@ -21,7 +21,7 @@ function Listcard({
   singleCardPage,
 }) {
   const dispatch = useDispatch();
-  
+
   const handleAddFavoritesPositions = (event) => {
     const action = addFavoritePosition(event.target.id);
     dispatch(action);

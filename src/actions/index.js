@@ -20,13 +20,13 @@ export const changeSearchText = (searchText) => ({
   // on passe en propriété raccourcie
   searchText,
 });
-export const changeFilteredPositions = (searchText) => ({
-  type: CHANGE_FILTERED_POSITIONS,
-  // le payload de l'action nous est fournit depuis le paramètre "direction"
-  // direction: direction,
-  // on passe en propriété raccourcie
-  searchText,
-});
+// export const changeFilteredPositions = (searchText) => ({
+//   type: CHANGE_FILTERED_POSITIONS,
+//   // le payload de l'action nous est fournit depuis le paramètre "direction"
+//   // direction: direction,
+//   // on passe en propriété raccourcie
+//   searchText,
+// });
 export const initialiseFilteredPositions = (searchText) => ({
   type: INITIALISE_FILTERED_POSITIONS,
 });

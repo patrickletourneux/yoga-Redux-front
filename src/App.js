@@ -6,16 +6,17 @@ import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
+import { selectFilteredPositions } from './selectors';
 
 import './styles.css';
 
 // == Composant
 function App() {
 
-  const filteredPositions = useSelector((state) => state.filteredPositions);
   const favoritesPositions = useSelector((state) => state.favoritePositions);
   const detailPosition = useSelector((state) => state.detailPosition);
+
+  const filteredPositions = useSelector(selectFilteredPositions());
 
   useEffect(() => {
     console.log('APP NOUVEAU RENDU');
