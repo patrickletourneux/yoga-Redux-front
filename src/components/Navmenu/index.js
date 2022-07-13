@@ -31,6 +31,13 @@ function Navmenu(props) {
       >
         detail
       </Menu.Item>
+      <Menu.Item
+        name="series"
+        to="/series"
+        as={NavLink}
+      >
+        series
+      </Menu.Item>
     </Menu>
   );
 }

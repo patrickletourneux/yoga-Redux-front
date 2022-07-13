@@ -6,9 +6,9 @@ import Navmenu from '../Navmenu';
 function Header(props) {
   return (
     <div className="marginbot">
-      <Head as="h1" textAlign="center">
+      <Head as="h3" textAlign="center">
         <Head.Content>
-          <h1>Yoga / React.js / semantic UI React / Redux</h1>
+          Yoga / React.js / semantic UI React / Redux
           <Navmenu />
         </Head.Content>
       </Head>

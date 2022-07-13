@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Header from './components/Header';
 import Listcard from './components/Listcard';
+import Series from './components/Series';
 import Footer from './components/Footer';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -56,6 +57,15 @@ function App() {
                 data={[detailPosition]}
                 singleCardPage
               />
+            </div>
+          )}
+        />
+      <Route
+          exact
+          path="/series"
+          element={(
+            <div>
+              <Series/>
             </div>
           )}
         />
