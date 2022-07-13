@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form , Input } from 'semantic-ui-react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -36,23 +36,30 @@ export default function Formular() {
   //   dispatch(action);
   // };
   return (
+    <div>
+
+    <h4>Search Sanskrit/English</h4>
     <Form 
     className="form marginBottom" 
+    size="mini"
+    
     // onSubmit={handlesubmitSearchText}
-    >
+    >   
       <Form.Field>
-      <label>Search Sanskrit/English</label>
-      <input 
+      
+      <Input 
         className="form__input"
         type="text"
+        action="filter"
         value={searchText}
+        size="mini"
         onChange={handlesearchTextChange} />
       </Form.Field>
       {/* <Button 
        type='submit'
        size="mini"
-      >
-        Submit filter
+       >
+       Submit filter
       </Button> */}
       <Button 
        type="button"
@@ -60,8 +67,9 @@ export default function Formular() {
        onClick={handleDeleteFilter}
        size="mini"
       >
-        Delete filter
+      Delete filter
       </Button>
     </Form>
+    </div>
   );
 }
