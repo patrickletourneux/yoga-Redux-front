@@ -3,13 +3,13 @@ import axios from 'axios';
 const userAxios = (store) => (next) => (action) => {
   console.log('userAxios middleware', action);
 
-
-  axios.post('http://localhost:6000/api/v1/users', {
+  // avoid port 6000 for backend, chrome block port 6000
+  axios.post('http://localhost:3001/api/v1/users', {
     email: 'test@mail.fr',
     password: 'blabal',
     pseudonym:'test'
   }).then((response) => {
-  console.log('response',response)
+  console.log('response.data',response.data)
   next(action);
 
   })
