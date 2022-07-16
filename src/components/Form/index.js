@@ -63,7 +63,7 @@ export default function Formular() {
       </Button> */}
       <Button 
        type="button"
-       color = {searchText.length > 0 ? "red":""}
+       color = {searchText.length > 0 ? "red":"standart"}
        onClick={handleDeleteFilter}
        size="mini"
       >

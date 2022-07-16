@@ -112,10 +112,10 @@ function Listcard({
 
 Listcard.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
-    user_id: PropTypes.number.isRequired,
-    img_url: PropTypes.string.isRequired,
-    english_name: PropTypes.string.isRequired,
-    sanskrit_name: PropTypes.string.isRequired,
+    user_id: PropTypes.number,
+    img_url: PropTypes.string,
+    english_name: PropTypes.string,
+    sanskrit_name: PropTypes.string,
   })),
   addToFavoritesPositions: PropTypes.func,
   deleteToFavoritesPositions: PropTypes.func,
