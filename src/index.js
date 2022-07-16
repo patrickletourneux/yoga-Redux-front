@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+
 import store from './store';
 
 
@@ -14,7 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+         <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
