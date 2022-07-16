@@ -4,7 +4,10 @@ import {
   INITIALISE_FILTERED_POSITIONS,
   ADD_FAVORITE_POSITION,
   DELETE_FAVORITE_POSITION,
-  CHANGE_DETAIL_POSITION
+  CHANGE_DETAIL_POSITION,
+  CHANGE_USER_PSEUDONYM,
+  CHANGE_USER_EMAIL,
+  CHANGE_USER_PASSWORD
 } 
 from '../actions';
 
@@ -13,6 +16,9 @@ import data from '../data/yoga_api';
 const initialState = {
   allPositions : data,
   searchText :"",
+  userPseudonym :"",
+  userEmail :"",
+  userPassword :"",
   // filteredPositions: data,
   favoritePositions:[],
   detailPosition : {},
@@ -29,6 +35,27 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         searchText: action.searchText,
+      };
+    }
+    case CHANGE_USER_PSEUDONYM: {
+      console.log('reducer CHANGE_USER_PSEUDONYM');
+      return {
+        ...state,
+        userPseudonym: action.userPseudonym,
+      };
+    }
+    case CHANGE_USER_EMAIL: {
+      console.log('reducer CHANGE_USER_EMAIL');
+      return {
+        ...state,
+        userEmail: action.userEmail,
+      };
+    }
+    case CHANGE_USER_PASSWORD: {
+      console.log('reducer CHANGE_USER_PASSWORD');
+      return {
+        ...state,
+        userPassword: action.userPassword,
       };
     }
     // case CHANGE_FILTERED_POSITIONS: {

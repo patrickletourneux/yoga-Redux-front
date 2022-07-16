@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import Header from './components/Header';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
+import SignupFormular from './components/SignupFormular';
+
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { selectFilteredPositions } from './selectors';
@@ -33,6 +35,14 @@ function App() {
             <Listcard
               data={filteredPositions}
               homePage
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/signup"
+          element={(
+            <SignupFormular
             />
           )}
         />

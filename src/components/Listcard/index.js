@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../Form';
+import SearchFormular from '../SearchFormular';
 // import Card from 'src/components/Card';
 import { useEffect } from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
@@ -42,8 +42,8 @@ function Listcard({
   return (
     <div className="marginbot">
       {homePage && 
-      (<Form>
-      </Form>)
+      (<SearchFormular>
+      </SearchFormular>)
       }
       <Card.Group
         itemsPerRow={3}

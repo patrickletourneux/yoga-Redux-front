@@ -12,7 +12,7 @@ import {
 
 import './styles.css';
 
-export default function Formular() {
+export default function SearchFormular() {
   const dispatch = useDispatch();
 
   const searchText = useSelector((state) => state.searchText);
