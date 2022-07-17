@@ -48,6 +48,7 @@ export default function SignupFormular() {
     <h4>Signup Formular</h4>
     <Form 
     className="form marginBottom" 
+    id="formSignupFormular" 
     size="mini"
     onSubmit={handleSubmitSignupFormular}
     >   
@@ -83,6 +84,7 @@ export default function SignupFormular() {
         value={userPassword}
         size="mini"
         onChange={handleUserPasswordChange} />
+        </Form.Group>
       <Form.Field
       required
       >
@@ -99,7 +101,6 @@ export default function SignupFormular() {
        Submit signup formular
       </Button>
         
-      </Form.Group>
     </Form>
     </div>
   );
