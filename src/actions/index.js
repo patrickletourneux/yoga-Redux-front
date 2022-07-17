@@ -9,11 +9,9 @@ export const INITIALISE_FILTERED_POSITIONS = 'INITIALISE_FILTERED_POSITIONS';
 export const ADD_FAVORITE_POSITION = 'ADD_FAVORITE_POSITION';
 export const DELETE_FAVORITE_POSITION = 'DELETE_FAVORITE_POSITION';
 export const CHANGE_DETAIL_POSITION = 'CHANGE_DETAIL_POSITION';
-// export const CHANGE_USER_PSEUDONYM = 'CHANGE_USER_PSEUDONYM';
-// export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
-// export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 export const SUBMIT_SIGNUP_FORMULAR = 'SUBMIT_SIGNUP_FORMULAR';
+export const SUBMIT_SIGNIN_FORMULAR = 'SUBMIT_SIGNIN_FORMULAR';
 
 
 // Action creators
@@ -26,51 +24,22 @@ export const changeSearchText = (searchText) => ({
   // on passe en propriété raccourcie
   searchText,
 });
-// export const changeUserPseudonym = (userPseudonym ) => ({
-//   type: CHANGE_USER_PSEUDONYM,
-//   // le payload de l'action nous est fournit depuis le paramètre "direction"
-//   // direction: direction,
-//   // on passe en propriété raccourcie
-//   userPseudonym,
-// });
-// export const changeUserEmail = (userEmail ) => ({
-//   type: CHANGE_USER_EMAIL,
-//   // le payload de l'action nous est fournit depuis le paramètre "direction"
-//   // direction: direction,
-//   // on passe en propriété raccourcie
-//   userEmail,
-// });
-// export const changeUserPassword = (userPassword ) => ({
-//   type: CHANGE_USER_PASSWORD,
-//   // le payload de l'action nous est fournit depuis le paramètre "direction"
-//   // direction: direction,
-//   // on passe en propriété raccourcie
-//   userPassword,
-// });
 export const changeInput = (value, name ) => ({
   type: CHANGE_INPUT,
-  // le payload de l'action nous est fournit depuis le paramètre "direction"
-  // direction: direction,
-  // on passe en propriété raccourcie
   value,
   name,
 });
 export const submitSignupFormular = (userPseudonym,userEmail,userPassword ) => ({
   type: SUBMIT_SIGNUP_FORMULAR,
-  // le payload de l'action nous est fournit depuis le paramètre "direction"
-  // direction: direction,
-  // on passe en propriété raccourcie
   userPseudonym,
   userEmail,
   userPassword
 });
-// export const changeFilteredPositions = (searchText) => ({
-//   type: CHANGE_FILTERED_POSITIONS,
-//   // le payload de l'action nous est fournit depuis le paramètre "direction"
-//   // direction: direction,
-//   // on passe en propriété raccourcie
-//   searchText,
-// });
+export const submitSigninFormular = (userEmail,userPassword ) => ({
+  type: SUBMIT_SIGNIN_FORMULAR,
+  userEmail,
+  userPassword
+});
 export const initialiseFilteredPositions = (searchText) => ({
   type: INITIALISE_FILTERED_POSITIONS,
 });

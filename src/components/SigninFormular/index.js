@@ -1,20 +1,20 @@
 
 import React from 'react'
-import { Button, Form , Checkbox } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import { useSelector  } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { 
   changeInput,
-  submitSignupFormular
+  submitSigninFormular
 } from '../../actions';
 
 import './styles.css';
 
-export default function SignupFormular() {
+export default function SigninFormular() {
   const dispatch = useDispatch();
 
-  const userPseudonym = useSelector((state) => state.userPseudonym);
+  // const userPseudonym = useSelector((state) => state.userPseudonym);
   const userEmail = useSelector((state) => state.userEmail);
   const userPassword = useSelector((state) => state.userPassword);
   const handleInputChange = (event) => {
@@ -23,37 +23,25 @@ export default function SignupFormular() {
     dispatch(action);
   };
 
-  const handleSubmitSignupFormular = (event) => {
-    console.log('handleSubmitSignupFormular');
-    const action = submitSignupFormular(userPseudonym,userEmail,userPassword);
+  const handleSubmitSigninFormular = (event) => {
+    console.log('handleSubmitSigninFormular');
+    const action = submitSigninFormular(userEmail,userPassword);
     dispatch(action);
     event.preventDefault();
   };
 
   return (
     <div>
-    <h4>Signup Formular</h4>
+    <h4>Signin Formular</h4>
     <Form 
     className="form marginBottom" 
     id="formSignupFormular" 
     size="mini"
-    onSubmit={handleSubmitSignupFormular}
+    onSubmit={handleSubmitSigninFormular}
     >   
     <Form.Group
       widths='equal'
       >
-
-      <Form.Input
-        fluid
-        className="form__input"
-        type="text"
-        label="pseudonym"
-        name="userPseudonym"
-        value={userPseudonym}
-        size="mini"
-        onChange={handleInputChange} 
-        required
-      />
       <Form.Input
       fluid
         required
@@ -78,17 +66,13 @@ export default function SignupFormular() {
       <Form.Field
       required
       >
-      <Checkbox 
-        label='I agree to the Terms and Conditions'
-        defaultChecked
-        />
     </Form.Field>
       <Button 
       fluid
        type='submit'
        size="mini"
        >
-       Submit signup formular
+       Submit signin formular
       </Button>
         
     </Form>

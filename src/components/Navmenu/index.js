@@ -8,20 +8,9 @@ function Navmenu(props) {
       compact 
     >
       <Menu.Item
-        name="signup"
-        to="/signup"
-        as={NavLink}
-        // active={activeItem === 'home'}
-        // onClick={this.handleItemClick}
-      >
-        signup
-      </Menu.Item>
-      <Menu.Item
         name="home"
         to="/"
         as={NavLink}
-        // active={activeItem === 'home'}
-        // onClick={this.handleItemClick}
       >
         home
       </Menu.Item>
