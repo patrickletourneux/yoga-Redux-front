@@ -5,10 +5,11 @@ import { useSelector  } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { 
-  changeUserPseudonym , 
-  changeUserEmail , 
-  changeUserPassword ,
-  changeInput
+  // changeUserPseudonym , 
+  // changeUserEmail , 
+  // changeUserPassword ,
+  changeInput,
+  submitSignupFormular
 } from '../../actions';
 
 import './styles.css';
@@ -40,9 +41,9 @@ export default function SignupFormular() {
   //   dispatch(action);
   // };
   const handleInputChange = (event) => {
-    console.log('handleInputChange');
-    console.log('event.target.value', event.target.value);
-    console.log('event.target.name',event.target.name);
+    // console.log('handleInputChange');
+    // console.log('event.target.value', event.target.value);
+    // console.log('event.target.name',event.target.name);
     event.preventDefault();
     const action = changeInput(event.target.value, event.target.name);
     dispatch(action);
@@ -50,6 +51,8 @@ export default function SignupFormular() {
 
   const handleSubmitSignupFormular = (event) => {
     console.log('handleSubmitSignupFormular');
+    const action = submitSignupFormular(userPseudonym,userEmail,userPassword);
+    dispatch(action);
     event.preventDefault();
   };
 

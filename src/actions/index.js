@@ -9,10 +9,12 @@ export const INITIALISE_FILTERED_POSITIONS = 'INITIALISE_FILTERED_POSITIONS';
 export const ADD_FAVORITE_POSITION = 'ADD_FAVORITE_POSITION';
 export const DELETE_FAVORITE_POSITION = 'DELETE_FAVORITE_POSITION';
 export const CHANGE_DETAIL_POSITION = 'CHANGE_DETAIL_POSITION';
-export const CHANGE_USER_PSEUDONYM = 'CHANGE_USER_PSEUDONYM';
-export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
-export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
+// export const CHANGE_USER_PSEUDONYM = 'CHANGE_USER_PSEUDONYM';
+// export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
+// export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const SUBMIT_SIGNUP_FORMULAR = 'SUBMIT_SIGNUP_FORMULAR';
+
 
 // Action creators
 // fonction qui renvoie un objet de type action
@@ -52,6 +54,15 @@ export const changeInput = (value, name ) => ({
   // on passe en propriété raccourcie
   value,
   name,
+});
+export const submitSignupFormular = (userPseudonym,userEmail,userPassword ) => ({
+  type: SUBMIT_SIGNUP_FORMULAR,
+  // le payload de l'action nous est fournit depuis le paramètre "direction"
+  // direction: direction,
+  // on passe en propriété raccourcie
+  userPseudonym,
+  userEmail,
+  userPassword
 });
 // export const changeFilteredPositions = (searchText) => ({
 //   type: CHANGE_FILTERED_POSITIONS,
