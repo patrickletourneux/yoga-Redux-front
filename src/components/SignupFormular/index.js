@@ -52,7 +52,8 @@ export default function SignupFormular() {
     onSubmit={handleSubmitSignupFormular}
     >   
     <Form.Group
-      widths='equal'>
+      widths='equal'
+      >
 
       <Form.Input
         fluid
@@ -65,6 +66,7 @@ export default function SignupFormular() {
         required
       />
       <Form.Input
+      fluid
         required
         className="form__input"
         type="email"
@@ -73,6 +75,7 @@ export default function SignupFormular() {
         size="mini"
         onChange={handlesUserEmailChange} />
       <Form.Input
+      fluid
         required
         className="form__input"
         type="password"
