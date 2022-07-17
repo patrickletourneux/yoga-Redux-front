@@ -7,7 +7,8 @@ import { useDispatch } from 'react-redux';
 import { 
   changeUserPseudonym , 
   changeUserEmail , 
-  changeUserPassword , 
+  changeUserPassword ,
+  changeInput
 } from '../../actions';
 
 import './styles.css';
@@ -20,24 +21,33 @@ export default function SignupFormular() {
   const userPassword = useSelector((state) => state.userPassword);
   // const filteredPositions = useSelector((state) => state.filteredPositions);
  
-  const handlesUserPseudonymChange = (event) => {
-    console.log('handlesUserPseudonymChange');
+  // const handlesUserPseudonymChange = (event) => {
+  //   console.log('handlesUserPseudonymChange');
+  //   event.preventDefault();
+  //   const action = changeUserPseudonym(event.target.value);
+  //   dispatch(action);
+  // };
+  // const handlesUserEmailChange = (event) => {
+  //   console.log('handlesUserEmailChange');
+  //   event.preventDefault();
+  //   const action = changeUserEmail(event.target.value);
+  //   dispatch(action);
+  // };
+  // const handleUserPasswordChange = (event) => {
+  //   console.log('handlesUserPasswordChange');
+  //   event.preventDefault();
+  //   const action = changeUserPassword(event.target.value);
+  //   dispatch(action);
+  // };
+  const handleInputChange = (event) => {
+    console.log('handleInputChange');
+    console.log('event.target.value', event.target.value);
+    console.log('event.target.name',event.target.name);
     event.preventDefault();
-    const action = changeUserPseudonym(event.target.value);
+    const action = changeInput(event.target.value, event.target.name);
     dispatch(action);
   };
-  const handlesUserEmailChange = (event) => {
-    console.log('handlesUserEmailChange');
-    event.preventDefault();
-    const action = changeUserEmail(event.target.value);
-    dispatch(action);
-  };
-  const handleUserPasswordChange = (event) => {
-    console.log('handlesUserPasswordChange');
-    event.preventDefault();
-    const action = changeUserPassword(event.target.value);
-    dispatch(action);
-  };
+
   const handleSubmitSignupFormular = (event) => {
     console.log('handleSubmitSignupFormular');
     event.preventDefault();
@@ -61,9 +71,10 @@ export default function SignupFormular() {
         className="form__input"
         type="text"
         label="pseudonym"
+        name="userPseudonym"
         value={userPseudonym}
         size="mini"
-        onChange={handlesUserPseudonymChange} 
+        onChange={handleInputChange} 
         required
       />
       <Form.Input
@@ -72,18 +83,20 @@ export default function SignupFormular() {
         className="form__input"
         type="email"
         label="email"
+        name="userEmail"
         value={userEmail}
         size="mini"
-        onChange={handlesUserEmailChange} />
+        onChange={handleInputChange} />
       <Form.Input
       fluid
         required
         className="form__input"
         type="password"
         label="password"
+        name="userPassword"
         value={userPassword}
         size="mini"
-        onChange={handleUserPasswordChange} />
+        onChange={handleInputChange} />
         </Form.Group>
       <Form.Field
       required

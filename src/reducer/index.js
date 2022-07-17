@@ -7,7 +7,8 @@ import {
   CHANGE_DETAIL_POSITION,
   CHANGE_USER_PSEUDONYM,
   CHANGE_USER_EMAIL,
-  CHANGE_USER_PASSWORD
+  CHANGE_USER_PASSWORD,
+  CHANGE_INPUT
 } 
 from '../actions';
 
@@ -37,25 +38,32 @@ const reducer = (state = initialState, action = {}) => {
         searchText: action.searchText,
       };
     }
-    case CHANGE_USER_PSEUDONYM: {
-      console.log('reducer CHANGE_USER_PSEUDONYM');
+    // case CHANGE_USER_PSEUDONYM: {
+    //   console.log('reducer CHANGE_USER_PSEUDONYM');
+    //   return {
+    //     ...state,
+    //     userPseudonym: action.userPseudonym,
+    //   };
+    // }
+    // case CHANGE_USER_EMAIL: {
+    //   console.log('reducer CHANGE_USER_EMAIL');
+    //   return {
+    //     ...state,
+    //     userEmail: action.userEmail,
+    //   };
+    // }
+    // case CHANGE_USER_PASSWORD: {
+    //   console.log('reducer CHANGE_USER_PASSWORD');
+    //   return {
+    //     ...state,
+    //     userPassword: action.userPassword,
+    //   };
+    // }
+    case CHANGE_INPUT: {
+      console.log('reducer CHANGE_INPUT');
       return {
         ...state,
-        userPseudonym: action.userPseudonym,
-      };
-    }
-    case CHANGE_USER_EMAIL: {
-      console.log('reducer CHANGE_USER_EMAIL');
-      return {
-        ...state,
-        userEmail: action.userEmail,
-      };
-    }
-    case CHANGE_USER_PASSWORD: {
-      console.log('reducer CHANGE_USER_PASSWORD');
-      return {
-        ...state,
-        userPassword: action.userPassword,
+        [action.name]: action.value,
       };
     }
     // case CHANGE_FILTERED_POSITIONS: {

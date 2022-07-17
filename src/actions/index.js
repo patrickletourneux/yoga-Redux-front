@@ -12,6 +12,7 @@ export const CHANGE_DETAIL_POSITION = 'CHANGE_DETAIL_POSITION';
 export const CHANGE_USER_PSEUDONYM = 'CHANGE_USER_PSEUDONYM';
 export const CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL';
 export const CHANGE_USER_PASSWORD = 'CHANGE_USER_PASSWORD';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
 
 // Action creators
 // fonction qui renvoie un objet de type action
@@ -23,26 +24,34 @@ export const changeSearchText = (searchText) => ({
   // on passe en propriété raccourcie
   searchText,
 });
-export const changeUserPseudonym = (userPseudonym ) => ({
-  type: CHANGE_USER_PSEUDONYM,
+// export const changeUserPseudonym = (userPseudonym ) => ({
+//   type: CHANGE_USER_PSEUDONYM,
+//   // le payload de l'action nous est fournit depuis le paramètre "direction"
+//   // direction: direction,
+//   // on passe en propriété raccourcie
+//   userPseudonym,
+// });
+// export const changeUserEmail = (userEmail ) => ({
+//   type: CHANGE_USER_EMAIL,
+//   // le payload de l'action nous est fournit depuis le paramètre "direction"
+//   // direction: direction,
+//   // on passe en propriété raccourcie
+//   userEmail,
+// });
+// export const changeUserPassword = (userPassword ) => ({
+//   type: CHANGE_USER_PASSWORD,
+//   // le payload de l'action nous est fournit depuis le paramètre "direction"
+//   // direction: direction,
+//   // on passe en propriété raccourcie
+//   userPassword,
+// });
+export const changeInput = (value, name ) => ({
+  type: CHANGE_INPUT,
   // le payload de l'action nous est fournit depuis le paramètre "direction"
   // direction: direction,
   // on passe en propriété raccourcie
-  userPseudonym,
-});
-export const changeUserEmail = (userEmail ) => ({
-  type: CHANGE_USER_EMAIL,
-  // le payload de l'action nous est fournit depuis le paramètre "direction"
-  // direction: direction,
-  // on passe en propriété raccourcie
-  userEmail,
-});
-export const changeUserPassword = (userPassword ) => ({
-  type: CHANGE_USER_PASSWORD,
-  // le payload de l'action nous est fournit depuis le paramètre "direction"
-  // direction: direction,
-  // on passe en propriété raccourcie
-  userPassword,
+  value,
+  name,
 });
 // export const changeFilteredPositions = (searchText) => ({
 //   type: CHANGE_FILTERED_POSITIONS,
