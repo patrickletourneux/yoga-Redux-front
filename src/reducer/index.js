@@ -5,7 +5,8 @@ import {
   DELETE_FAVORITE_POSITION,
   CHANGE_DETAIL_POSITION,
   CHANGE_INPUT,
-  CHANGE_IS_USER_CONNECTED_TO_TRUE
+  CHANGE_IS_USER_CONNECTED_TO_TRUE,
+  DISCONNECT_USER
 } 
 from '../actions';
 
@@ -47,6 +48,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isUserConnected: true,
+      };
+    }
+    case DISCONNECT_USER: {
+      console.log('reducer DISCONNECT_USER');
+      return {
+        ...state,
+        isUserConnected: false,
+        userPseudonym :"",
+        userEmail :"",
+        userPassword :"",
       };
     }
     case INITIALISE_FILTERED_POSITIONS: {

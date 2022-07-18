@@ -10,7 +10,11 @@ function ModalSignin() {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button>Signin</Button>}
+      trigger={<Button
+      color ='green'
+      >
+        Signin
+      </Button>}
     >
       <Modal.Header>Signin Modal</Modal.Header>
         <Modal.Content>

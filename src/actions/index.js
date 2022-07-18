@@ -13,6 +13,7 @@ export const CHANGE_INPUT = 'CHANGE_INPUT';
 export const SUBMIT_SIGNUP_FORMULAR = 'SUBMIT_SIGNUP_FORMULAR';
 export const SUBMIT_SIGNIN_FORMULAR = 'SUBMIT_SIGNIN_FORMULAR';
 export const CHANGE_IS_USER_CONNECTED_TO_TRUE = 'CHANGE_IS_USER_CONNECTED_TO_TRUE';
+export const DISCONNECT_USER = 'DISCONNECT_USER';
 
 
 // Action creators
@@ -44,6 +45,9 @@ export const submitSigninFormular = (userEmail,userPassword ) => ({
 export const changeIsUserConnectedToTrue = (isUserConnected) => ({
   type: CHANGE_IS_USER_CONNECTED_TO_TRUE,
   isUserConnected,
+});
+export const disconnectUser = () => ({
+  type: DISCONNECT_USER,
 });
 export const initialiseFilteredPositions = (searchText) => ({
   type: INITIALISE_FILTERED_POSITIONS,
