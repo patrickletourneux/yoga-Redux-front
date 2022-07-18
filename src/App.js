@@ -40,14 +40,6 @@ function App() {
         />
         <Route
           exact
-          path="/signup"
-          element={(
-            <SignupFormular
-            />
-          )}
-        />
-        <Route
-          exact
           path="/favorites"
           element={(
             <Listcard

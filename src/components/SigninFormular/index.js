@@ -11,7 +11,7 @@ import {
 
 import './styles.css';
 
-export default function SigninFormular() {
+export default function SigninFormular({closeModal}) {
   const dispatch = useDispatch();
 
   // const userPseudonym = useSelector((state) => state.userPseudonym);
@@ -27,6 +27,7 @@ export default function SigninFormular() {
     console.log('handleSubmitSigninFormular');
     const action = submitSigninFormular(userEmail,userPassword);
     dispatch(action);
+    closeModal()
     event.preventDefault();
   };
 

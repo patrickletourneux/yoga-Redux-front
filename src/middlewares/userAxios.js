@@ -1,7 +1,6 @@
-import axios from 'axios';
 
 const userAxios = (store) => (next) => (action) => {
-  console.log('userAxios middleware', action);
+  // console.log('userAxios middleware', action);
 
   // TODO reactive
   // avoid port 6000 for backend, chrome block port 6000

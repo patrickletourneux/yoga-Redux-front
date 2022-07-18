@@ -1,25 +1,25 @@
-import axios from 'axios';
+import api from '../axiosInstance';
+
 
 const submitSignupFormular = (store) => (next) => (action) => {
-  console.log('submitSignupFormular middleware', action);
+  // console.log('submitSignupFormular middleware', action);
+
   switch(action.type){
     case 'SUBMIT_SIGNUP_FORMULAR':
         console.log('to send axios')
-        axios.post('http://localhost:3001/api/v1/users', {
+        api.post('users', {
         pseudonym: action.userPseudonym,
         email: action.userEmail,
         password: action.userPassword,
         }).then((response) => {
             console.log('response.data',response.data)
-            next(action);
         })
         .catch((error) => console.log('error ',error));
         break;
     default:
         next(action);
   }
-
-  
+ 
 };
 
 

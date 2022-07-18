@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header as Head } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 import Navmenu from '../Navmenu';
 import ModalSignup from '../ModalSignup';
 import ModalSignin from '../ModalSignin';

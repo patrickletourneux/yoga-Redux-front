@@ -14,7 +14,8 @@ function ModalSignin() {
     >
       <Modal.Header>Signin Modal</Modal.Header>
         <Modal.Content>
-          <SigninFormular/>
+          <SigninFormular
+            closeModal = {() => setOpen(false)}/>
         </Modal.Content>
       <Modal.Actions>
         <Button color='black' onClick={() => setOpen(false)}>

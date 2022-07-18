@@ -1,14 +1,11 @@
 import { 
   CHANGE_SEARCH_TEXT , 
-  // CHANGE_FILTERED_POSITIONS , 
   INITIALISE_FILTERED_POSITIONS,
   ADD_FAVORITE_POSITION,
   DELETE_FAVORITE_POSITION,
   CHANGE_DETAIL_POSITION,
-  // CHANGE_USER_PSEUDONYM,
-  // CHANGE_USER_EMAIL,
-  // CHANGE_USER_PASSWORD,
-  CHANGE_INPUT
+  CHANGE_INPUT,
+  CHANGE_IS_USER_CONNECTED_TO_TRUE
 } 
 from '../actions';
 
@@ -20,7 +17,7 @@ const initialState = {
   userPseudonym :"",
   userEmail :"",
   userPassword :"",
-  // filteredPositions: data,
+  isUserConnected :false,
   favoritePositions:[],
   detailPosition : {},
 };
@@ -38,27 +35,6 @@ const reducer = (state = initialState, action = {}) => {
         searchText: action.searchText,
       };
     }
-    // case CHANGE_USER_PSEUDONYM: {
-    //   console.log('reducer CHANGE_USER_PSEUDONYM');
-    //   return {
-    //     ...state,
-    //     userPseudonym: action.userPseudonym,
-    //   };
-    // }
-    // case CHANGE_USER_EMAIL: {
-    //   console.log('reducer CHANGE_USER_EMAIL');
-    //   return {
-    //     ...state,
-    //     userEmail: action.userEmail,
-    //   };
-    // }
-    // case CHANGE_USER_PASSWORD: {
-    //   console.log('reducer CHANGE_USER_PASSWORD');
-    //   return {
-    //     ...state,
-    //     userPassword: action.userPassword,
-    //   };
-    // }
     case CHANGE_INPUT: {
       console.log('reducer CHANGE_INPUT');
       return {
@@ -66,22 +42,13 @@ const reducer = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
     }
-    // case CHANGE_FILTERED_POSITIONS: {
-    //   console.log('reducer CHANGE_FILTERED_POSITIONS');
-    //   const filteredPositionsSanskrit = state.allPositions.filter((item) => {
-    //     return item.sanskrit_name.toLowerCase().includes(state.searchText.toLowerCase())
-    //   });
-    //   const filteredPositionsEnglish = state.allPositions.filter((item) => {
-    //     return item.english_name.toLowerCase().includes(state.searchText.toLowerCase())
-    //   });
-    //   const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit,...filteredPositionsEnglish];
-    //   const filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)]
-      
-    //   return {
-    //     ...state,
-    //     filteredPositions : [...filteredPositionsSanskritEnglishwithoutDouble]
-    //   };
-    // }
+    case CHANGE_IS_USER_CONNECTED_TO_TRUE: {
+      console.log('reducer CHANGE_IS_USER_CONNECTED_TO_TRUE');
+      return {
+        ...state,
+        isUserConnected: true,
+      };
+    }
     case INITIALISE_FILTERED_POSITIONS: {
       console.log('reducer INITIALISE_FILTERED_POSITIONS');      
       return {
