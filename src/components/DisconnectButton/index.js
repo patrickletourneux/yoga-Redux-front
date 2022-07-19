@@ -1,24 +1,29 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 
 import { 
-    disconnectUser,
-  } from '../../actions';
+    initialiseUser,
+  } 
+from '../../actions';
 
 const DisconnectButton = () => {
     const dispatch = useDispatch();
+    const userEmail = useSelector((state) => state.userEmail);
 
     const handleDisconnectUser = (event) => {
-        dispatch(disconnectUser())
+        dispatch(initialiseUser())
     }
 
 
     return (
     <Button
+    color = 'orange'
+    fluid
     onClick={handleDisconnectUser}
+    size ='mini'
     >
-        Disconnect
+        Disconnect {userEmail}
     </Button>)
 }
 

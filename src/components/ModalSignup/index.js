@@ -10,11 +10,17 @@ function ModalSignup() {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button>Signup</Button>}
+      trigger={<Button
+          size ='mini'
+          >
+            Signup
+      </Button>}
     >
       <Modal.Header>Signup Modal</Modal.Header>
         <Modal.Content>
-          <SignupFormular/>
+          <SignupFormular
+            closeModal = {() => setOpen(false)}
+          />
         </Modal.Content>
       <Modal.Actions>
         <Button color='black' onClick={() => setOpen(false)}>

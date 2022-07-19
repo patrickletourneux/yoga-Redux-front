@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Navmenu from '../Navmenu';
 import ModalSignup from '../ModalSignup';
 import ModalSignin from '../ModalSignin';
-import DisconnedButton from '../DisconnedButton';
+import DisconnectButton from '../DisconnectButton';
 
 
 function Header(props) {
@@ -19,7 +19,7 @@ function Header(props) {
             <ModalSignin /> 
           </div>
           : 
-          <DisconnedButton/>
+          <DisconnectButton/>
         }
           <h2>Yoga / React.js / semantic UI React / Redux</h2>
           <Navmenu />

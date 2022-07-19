@@ -6,12 +6,13 @@ import { useDispatch } from 'react-redux';
 
 import { 
   changeInput,
-  submitSignupFormular
+  submitSignupFormular,
+  initialiseUser
 } from '../../actions';
 
 import './styles.css';
 
-export default function SignupFormular() {
+export default function SignupFormular({closeModal}) {
   const dispatch = useDispatch();
 
   const userPseudonym = useSelector((state) => state.userPseudonym);
@@ -27,6 +28,8 @@ export default function SignupFormular() {
     console.log('handleSubmitSignupFormular');
     const action = submitSignupFormular(userPseudonym,userEmail,userPassword);
     dispatch(action);
+    dispatch(initialiseUser())
+    closeModal()
     event.preventDefault();
   };
 

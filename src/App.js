@@ -21,7 +21,7 @@ function App() {
   const filteredPositions = useSelector(selectFilteredPositions());
 
   useEffect(() => {
-    console.log('APP NOUVEAU RENDU');
+    // console.log('APP NOUVEAU RENDU');
   });
 
   return (

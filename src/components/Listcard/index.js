@@ -36,7 +36,7 @@ function Listcard({
   };
 
   useEffect(() => {
-    console.log('LISTCARD NOUVEAU RENDU');
+    // console.log('LISTCARD NOUVEAU RENDU');
   }); 
 
   return (

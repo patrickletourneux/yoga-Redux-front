@@ -12,6 +12,7 @@ function ModalSignin() {
       open={open}
       trigger={<Button
       color ='green'
+      size ='mini'
       >
         Signin
       </Button>}
