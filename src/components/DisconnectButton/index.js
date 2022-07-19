@@ -9,7 +9,7 @@ from '../../actions';
 
 const DisconnectButton = () => {
     const dispatch = useDispatch();
-    const userEmail = useSelector((state) => state.userEmail);
+    const userPassword = useSelector((state) => state.userPassword);
 
     const handleDisconnectUser = (event) => {
         dispatch(initialiseUser())
@@ -23,7 +23,7 @@ const DisconnectButton = () => {
     onClick={handleDisconnectUser}
     size ='mini'
     >
-        Disconnect {userEmail}
+        Disconnect {userPassword}
     </Button>)
 }
 

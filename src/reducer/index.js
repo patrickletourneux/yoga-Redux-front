@@ -6,7 +6,8 @@ import {
   CHANGE_DETAIL_POSITION,
   CHANGE_INPUT,
   CHANGE_IS_USER_CONNECTED_TO_TRUE,
-  INITIALISE_USER
+  INITIALISE_USER,
+  CHANGE_ERROR_MESSAGE
 } 
 from '../actions';
 
@@ -21,6 +22,8 @@ const initialState = {
   isUserConnected :false,
   favoritePositions:[],
   detailPosition : {},
+  errorMessage :"",
+  errorStatusCode:"",
 };
 
 // le reducer est une fonction qui prend le state courant et l'action courante
@@ -48,6 +51,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isUserConnected: true,
+      };
+    }
+    case CHANGE_ERROR_MESSAGE: {
+      console.log('reducer CHANGE_ERROR_MESSAGE');
+      return {
+        ...state,
+        errorMessage: action.errorMessage,
       };
     }
     case INITIALISE_USER: {

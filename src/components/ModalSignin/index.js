@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react'
 import SigninFormular from '../SigninFormular';
 import { Button, Modal } from 'semantic-ui-react';
+import { useSelector  } from 'react-redux';
 
 function ModalSignin() {
   const [open, setOpen] = React.useState(false);
+  const isUserConnected = useSelector((state) => state.isUserConnected);
+
+  useEffect(() => {
+    setOpen(false) 
+  },[isUserConnected]);
 
   return (
     <Modal

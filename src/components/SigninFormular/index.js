@@ -1,6 +1,7 @@
 
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+// import { useEffect } from 'react'
+import { Button, Form , Message } from 'semantic-ui-react'
 import { useSelector  } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -17,17 +18,19 @@ export default function SigninFormular({closeModal}) {
   // const userPseudonym = useSelector((state) => state.userPseudonym);
   const userEmail = useSelector((state) => state.userEmail);
   const userPassword = useSelector((state) => state.userPassword);
+  const errorMessage = useSelector((state) => state.errorMessage);
+
   const handleInputChange = (event) => {
     event.preventDefault();
     const action = changeInput(event.target.value, event.target.name);
     dispatch(action);
   };
 
+  
   const handleSubmitSigninFormular = (event) => {
     console.log('handleSubmitSigninFormular');
     const action = submitSigninFormular(userEmail,userPassword);
     dispatch(action);
-    closeModal()
     event.preventDefault();
   };
 
@@ -77,6 +80,14 @@ export default function SigninFormular({closeModal}) {
       </Button>
         
     </Form>
+    {
+      errorMessage.length > 0 && 
+      <Message negative>
+      <Message.Header>{errorMessage}</Message.Header>
+    </Message>
+    }
+
+
     </div>
   );
 }
