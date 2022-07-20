@@ -2,14 +2,28 @@ import React, { useEffect } from 'react'
 import SigninFormular from '../SigninFormular';
 import { Button, Modal } from 'semantic-ui-react';
 import { useSelector  } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { 
+  changeErrorMessageSigninFormular,
+  initialiseUser
+ } 
+from '../../actions'
 
 function ModalSignin() {
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
   const isUserConnected = useSelector((state) => state.isUserConnected);
-
+  
   useEffect(() => {
     setOpen(false) 
   },[isUserConnected]);
+
+  const handleCloseModale = () => {
+    dispatch(changeErrorMessageSigninFormular(''));
+    dispatch(initialiseUser(''));
+    setOpen(false)
+  }
 
   return (
     <Modal
@@ -29,7 +43,7 @@ function ModalSignin() {
             closeModal = {() => setOpen(false)}/>
         </Modal.Content>
       <Modal.Actions>
-        <Button color='black' onClick={() => setOpen(false)}>
+      <Button color='black' onClick={() => handleCloseModale() }>
           Cancel
         </Button>
       </Modal.Actions>

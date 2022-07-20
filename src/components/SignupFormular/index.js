@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Button, Form , Checkbox } from 'semantic-ui-react'
+import { Button, Form , Checkbox , Message } from 'semantic-ui-react'
 import { useSelector  } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -18,6 +18,8 @@ export default function SignupFormular({closeModal}) {
   const userPseudonym = useSelector((state) => state.userPseudonym);
   const userEmail = useSelector((state) => state.userEmail);
   const userPassword = useSelector((state) => state.userPassword);
+  const errorMessageSignupFormular = useSelector((state) => state.errorMessageSignupFormular);
+
   const handleInputChange = (event) => {
     event.preventDefault();
     const action = changeInput(event.target.value, event.target.name);
@@ -95,6 +97,12 @@ export default function SignupFormular({closeModal}) {
       </Button>
         
     </Form>
+    {
+      errorMessageSignupFormular.length > 0 && 
+      <Message negative>
+      <Message.Header>{errorMessageSignupFormular}</Message.Header>
+    </Message>
+    }
     </div>
   );
 }

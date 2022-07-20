@@ -18,7 +18,7 @@ export default function SigninFormular({closeModal}) {
   // const userPseudonym = useSelector((state) => state.userPseudonym);
   const userEmail = useSelector((state) => state.userEmail);
   const userPassword = useSelector((state) => state.userPassword);
-  const errorMessage = useSelector((state) => state.errorMessage);
+  const errorMessageSigninFormular = useSelector((state) => state.errorMessageSigninFormular);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -81,9 +81,9 @@ export default function SigninFormular({closeModal}) {
         
     </Form>
     {
-      errorMessage.length > 0 && 
+      errorMessageSigninFormular.length > 0 && 
       <Message negative>
-      <Message.Header>{errorMessage}</Message.Header>
+      <Message.Header>{errorMessageSigninFormular}</Message.Header>
     </Message>
     }
 

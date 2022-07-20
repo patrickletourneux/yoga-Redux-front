@@ -7,7 +7,8 @@ import {
   CHANGE_INPUT,
   CHANGE_IS_USER_CONNECTED_TO_TRUE,
   INITIALISE_USER,
-  CHANGE_ERROR_MESSAGE
+  CHANGE_ERROR_MESSAGE_SIGNIN_FORMULAR,
+  CHANGE_ERROR_MESSAGE_SIGNUP_FORMULAR
 } 
 from '../actions';
 
@@ -22,7 +23,8 @@ const initialState = {
   isUserConnected :false,
   favoritePositions:[],
   detailPosition : {},
-  errorMessage :"",
+  errorMessageSigninFormular :"",
+  errorMessageSignupFormular :"",
   errorStatusCode:"",
 };
 
@@ -53,11 +55,18 @@ const reducer = (state = initialState, action = {}) => {
         isUserConnected: true,
       };
     }
-    case CHANGE_ERROR_MESSAGE: {
-      console.log('reducer CHANGE_ERROR_MESSAGE');
+    case CHANGE_ERROR_MESSAGE_SIGNIN_FORMULAR: {
+      console.log('reducer CHANGE_ERROR_MESSAGE_SIGNIN_FORMULAR');
       return {
         ...state,
-        errorMessage: action.errorMessage,
+        errorMessageSigninFormular: action.errorMessage,
+      };
+    }
+    case CHANGE_ERROR_MESSAGE_SIGNUP_FORMULAR: {
+      console.log('reducer CHANGE_ERROR_MESSAGE_SIGNUP_FORMULAR');
+      return {
+        ...state,
+        errorMessageSignupFormular: action.errorMessage,
       };
     }
     case INITIALISE_USER: {
