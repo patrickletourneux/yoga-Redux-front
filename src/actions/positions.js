@@ -10,7 +10,6 @@ export const ADD_FAVORITE_POSITION = 'ADD_FAVORITE_POSITION';
 export const DELETE_FAVORITE_POSITION = 'DELETE_FAVORITE_POSITION';
 export const CHANGE_DETAIL_POSITION = 'CHANGE_DETAIL_POSITION';
 
-
 // Action creators
 // fonction qui renvoie un objet de type action
 
@@ -21,20 +20,18 @@ export const changeSearchText = (searchText) => ({
   // on passe en propriété raccourcie
   searchText,
 });
-export const initialiseFilteredPositions = (searchText) => ({
+export const initialiseFilteredPositions = () => ({
   type: INITIALISE_FILTERED_POSITIONS,
 });
 export const addFavoritePosition = (id) => ({
   type: ADD_FAVORITE_POSITION,
-  id : id
+  id,
 });
 export const deleteFavoritePosition = (id) => ({
   type: DELETE_FAVORITE_POSITION,
-  id: id
+  id,
 });
 export const changeDetailPosition = (id) => ({
   type: CHANGE_DETAIL_POSITION,
-  id: id
+  id,
 });
-
-

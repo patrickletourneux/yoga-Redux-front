@@ -1,4 +1,3 @@
-
 const userAxios = (store) => (next) => (action) => {
   // console.log('userAxios middleware', action);
 
@@ -18,9 +17,6 @@ const userAxios = (store) => (next) => (action) => {
   // si je veux laisser passer l'action au prochain MW ou au reducer
   // on utilise la fonction next avec l'action en argument
   next(action);
-  
 };
-
-
 
 export default userAxios;

@@ -6,21 +6,20 @@ import ModalSignup from '../ModalSignup';
 import ModalSignin from '../ModalSignin';
 import DisconnectButton from '../DisconnectButton';
 
-
-function Header(props) {
+function Header() {
   const isUserConnected = useSelector((state) => state.user.isUserConnected);
   return (
     <div className="marginbot">
       <Head as="h1" textAlign="center">
         <Head.Content>
-          {!isUserConnected ?
-          <div>
-            <ModalSignup />
-            <ModalSignin /> 
-          </div>
-          : 
-          <DisconnectButton/>
-        }
+          {!isUserConnected
+            ? (
+              <div>
+                <ModalSignup />
+                <ModalSignin />
+              </div>
+            )
+            : <DisconnectButton />}
           <h2>Yoga / React.js / semantic UI React / Redux</h2>
           <Navmenu />
         </Head.Content>

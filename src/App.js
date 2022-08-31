@@ -1,20 +1,19 @@
 // == Import
 import { useSelector } from 'react-redux';
 
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import RequireAuth from './components/RequireAuth';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 
-import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import { selectFilteredPositions } from './selectors';
 
 import './styles.css';
 
 // == Composant
 function App() {
-
   const favoritesPositions = useSelector((state) => state.positions.favoritePositions);
   const detailPosition = useSelector((state) => state.positions.detailPosition);
 
@@ -48,7 +47,7 @@ function App() {
               <Listcard
                 data={favoritesPositions}
                 favoritesPage
-                />
+              />
             </RequireAuth>
           )}
         />
@@ -58,11 +57,11 @@ function App() {
           element={(
             <RequireAuth>
               <div>
-                <h3>details Page of the posture</h3> 
+                <h3>details Page of the posture</h3>
                 <Listcard
                   data={[detailPosition]}
                   singleCardPage
-                  />
+                />
               </div>
             </RequireAuth>
           )}

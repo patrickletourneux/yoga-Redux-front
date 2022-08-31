@@ -1,11 +1,13 @@
 import React from 'react';
 
-function Footer(props) {
-  return (<div> 
-          <h1> 
-            Footer : mentions légales ...
-          </h1>
-        </div>);
+function Footer() {
+  return (
+    <div>
+      <h1>
+        Footer : mentions légales ...
+      </h1>
+    </div>
+  );
 }
 
 Footer.propTypes = {};
