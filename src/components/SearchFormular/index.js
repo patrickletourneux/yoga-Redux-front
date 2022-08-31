@@ -49,15 +49,9 @@ export default function SearchFormular() {
             onChange={handlesearchTextChange}
           />
         </Form.Field>
-        {/* <Button
-       type='submit'
-       size="mini"
-       >
-       Submit filter
-      </Button> */}
         <Button
           type="button"
-          color={searchText.length > 0 ? 'red' : 'standart'}
+          color={searchText.length > 0 ? 'red' : 'grey'}
           onClick={handleDeleteFilter}
           size="mini"
         >
