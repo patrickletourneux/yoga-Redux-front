@@ -2,6 +2,7 @@
 import { useSelector } from 'react-redux';
 
 import Header from './components/Header';
+import RequireAuth from './components/RequireAuth';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 
@@ -14,13 +15,13 @@ import './styles.css';
 // == Composant
 function App() {
 
-  const favoritesPositions = useSelector((state) => state.favoritePositions);
-  const detailPosition = useSelector((state) => state.detailPosition);
+  const favoritesPositions = useSelector((state) => state.positions.favoritePositions);
+  const detailPosition = useSelector((state) => state.positions.detailPosition);
 
   const filteredPositions = useSelector(selectFilteredPositions());
 
   useEffect(() => {
-    console.log('APP NOUVEAU RENDU');
+    // console.log('APP NOUVEAU RENDU');
   });
 
   return (
@@ -31,33 +32,39 @@ function App() {
           exact
           path=""
           element={(
-            <Listcard
-              data={filteredPositions}
-              homePage
-            />
+            <RequireAuth>
+              <Listcard
+                data={filteredPositions}
+                homePage
+              />
+            </RequireAuth>
           )}
         />
         <Route
           exact
           path="/favorites"
           element={(
-            <Listcard
-              data={favoritesPositions}
-              favoritesPage
-            />
+            <RequireAuth>
+              <Listcard
+                data={favoritesPositions}
+                favoritesPage
+                />
+            </RequireAuth>
           )}
         />
         <Route
           exact
           path="/singleCard"
           element={(
-            <div>
-              <h3>details Page of the posture</h3> 
-              <Listcard
-                data={[detailPosition]}
-                singleCardPage
-              />
-            </div>
+            <RequireAuth>
+              <div>
+                <h3>details Page of the posture</h3> 
+                <Listcard
+                  data={[detailPosition]}
+                  singleCardPage
+                  />
+              </div>
+            </RequireAuth>
           )}
         />
       </Routes>

@@ -1,22 +1,25 @@
 
 import React from 'react'
-import { Button, Form , Checkbox } from 'semantic-ui-react'
+import { Button, Form , Checkbox , Message } from 'semantic-ui-react'
 import { useSelector  } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { 
   changeInput,
-  submitSignupFormular
-} from '../../actions';
+  submitSignupFormular,
+  initialiseUser
+} from '../../actions/user';
 
 import './styles.css';
 
-export default function SignupFormular() {
+export default function SignupFormular({closeModal}) {
   const dispatch = useDispatch();
 
-  const userPseudonym = useSelector((state) => state.userPseudonym);
-  const userEmail = useSelector((state) => state.userEmail);
-  const userPassword = useSelector((state) => state.userPassword);
+  const userPseudonym = useSelector((state) => state.user.userPseudonym);
+  const userEmail = useSelector((state) => state.user.userEmail);
+  const userPassword = useSelector((state) => state.user.userPassword);
+  const errorMessageSignupFormular = useSelector((state) => state.user.errorMessageSignupFormular);
+
   const handleInputChange = (event) => {
     event.preventDefault();
     const action = changeInput(event.target.value, event.target.name);
@@ -27,6 +30,8 @@ export default function SignupFormular() {
     console.log('handleSubmitSignupFormular');
     const action = submitSignupFormular(userPseudonym,userEmail,userPassword);
     dispatch(action);
+    dispatch(initialiseUser())
+    closeModal()
     event.preventDefault();
   };
 
@@ -44,13 +49,13 @@ export default function SignupFormular() {
       >
 
       <Form.Input
-        fluid
+        // fluid
         className="form__input"
         type="text"
         label="pseudonym"
         name="userPseudonym"
         value={userPseudonym}
-        size="mini"
+        size="large"
         onChange={handleInputChange} 
         required
       />
@@ -62,7 +67,7 @@ export default function SignupFormular() {
         label="email"
         name="userEmail"
         value={userEmail}
-        size="mini"
+        size="large"
         onChange={handleInputChange} />
       <Form.Input
       fluid
@@ -72,7 +77,7 @@ export default function SignupFormular() {
         label="password"
         name="userPassword"
         value={userPassword}
-        size="mini"
+        size="large"
         onChange={handleInputChange} />
         </Form.Group>
       <Form.Field
@@ -92,6 +97,12 @@ export default function SignupFormular() {
       </Button>
         
     </Form>
+    {
+      errorMessageSignupFormular.length > 0 && 
+      <Message negative>
+      <Message.Header>{errorMessageSignupFormular}</Message.Header>
+    </Message>
+    }
     </div>
   );
 }

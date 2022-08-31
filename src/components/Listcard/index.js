@@ -11,7 +11,7 @@ import {
   addFavoritePosition,
   deleteFavoritePosition,
   changeDetailPosition,
-} from '../../actions';
+} from '../../actions/positions';
 
 
 function Listcard({
@@ -36,7 +36,7 @@ function Listcard({
   };
 
   useEffect(() => {
-    console.log('LISTCARD NOUVEAU RENDU');
+    // console.log('LISTCARD NOUVEAU RENDU');
   }); 
 
   return (

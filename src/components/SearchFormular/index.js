@@ -6,16 +6,15 @@ import { useDispatch } from 'react-redux';
 
 import { 
   changeSearchText , 
-  // changeFilteredPositions , 
   initialiseFilteredPositions , 
-} from '../../actions';
+} from '../../actions/positions';
 
 import './styles.css';
 
 export default function SearchFormular() {
   const dispatch = useDispatch();
 
-  const searchText = useSelector((state) => state.searchText);
+  const searchText = useSelector((state) => state.positions.searchText);
   // const filteredPositions = useSelector((state) => state.filteredPositions);
   const handleDeleteFilter = () => {
     console.log('handleDeleteFilter');
