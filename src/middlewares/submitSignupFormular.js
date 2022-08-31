@@ -3,7 +3,7 @@ import api from '../axiosInstance';
 import { 
   changeErrorMessageSignupFormular
  } 
-from '../actions'
+from '../actions/user'
 
 const submitSignupFormular = (store) => (next) => (action) => {
   // console.log('submitSignupFormular middleware', action);
@@ -16,7 +16,7 @@ const submitSignupFormular = (store) => (next) => (action) => {
         email: action.userEmail,
         password: action.userPassword,
         }).then((response) => {
-            console.log('response.data',response.data)
+            console.log('submit signup formular response.data',response.data)
             store.dispatch(changeErrorMessageSignupFormular(''));
         })
         .catch((error) => {

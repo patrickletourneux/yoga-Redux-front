@@ -6,9 +6,8 @@ import { useDispatch } from 'react-redux';
 
 import { 
   changeSearchText , 
-  // changeFilteredPositions , 
   initialiseFilteredPositions , 
-} from '../../actions';
+} from '../../actions/positions';
 
 import './styles.css';
 

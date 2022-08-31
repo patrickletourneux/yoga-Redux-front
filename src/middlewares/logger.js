@@ -7,7 +7,7 @@
 const logger = (store) => (next) => (action) => {
   const state = store.getState();
   console.log('Logger middleware: ', action);
-  console.log('state ',state)
+  // console.log('state ',state)
 
   // si je veux laisser passer l'action au prochain MW ou au reducer
   // on utilise la fonction next avec l'action en argument

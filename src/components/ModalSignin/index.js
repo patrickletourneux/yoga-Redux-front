@@ -8,7 +8,7 @@ import {
   changeErrorMessageSigninFormular,
   initialiseUser
  } 
-from '../../actions'
+from '../../actions/user'
 
 function ModalSignin() {
   const [open, setOpen] = React.useState(false);

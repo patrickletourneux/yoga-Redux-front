@@ -8,7 +8,7 @@ import {
   changeInput,
   submitSignupFormular,
   initialiseUser
-} from '../../actions';
+} from '../../actions/user';
 
 import './styles.css';
 
@@ -55,7 +55,7 @@ export default function SignupFormular({closeModal}) {
         label="pseudonym"
         name="userPseudonym"
         value={userPseudonym}
-        size="mini"
+        size="large"
         onChange={handleInputChange} 
         required
       />
@@ -67,7 +67,7 @@ export default function SignupFormular({closeModal}) {
         label="email"
         name="userEmail"
         value={userEmail}
-        size="mini"
+        size="large"
         onChange={handleInputChange} />
       <Form.Input
       fluid
@@ -77,7 +77,7 @@ export default function SignupFormular({closeModal}) {
         label="password"
         name="userPassword"
         value={userPassword}
-        size="mini"
+        size="large"
         onChange={handleInputChange} />
         </Form.Group>
       <Form.Field

@@ -5,7 +5,7 @@ import { useDispatch , useSelector } from 'react-redux';
 import { 
     initialiseUser,
   } 
-from '../../actions';
+from '../../actions/user';
 
 const DisconnectButton = () => {
     const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { 
   changeInput,
   submitSigninFormular
-} from '../../actions';
+} from '../../actions/user';
 
 import './styles.css';
 
@@ -28,7 +28,6 @@ export default function SigninFormular({closeModal}) {
 
   
   const handleSubmitSigninFormular = (event) => {
-    console.log('handleSubmitSigninFormular');
     const action = submitSigninFormular(userEmail,userPassword);
     dispatch(action);
     event.preventDefault();
@@ -54,7 +53,7 @@ export default function SigninFormular({closeModal}) {
         label="email"
         name="userEmail"
         value={userEmail}
-        size="mini"
+        size="large"
         onChange={handleInputChange} />
       <Form.Input
       fluid
@@ -64,7 +63,7 @@ export default function SigninFormular({closeModal}) {
         label="password"
         name="userPassword"
         value={userPassword}
-        size="mini"
+        size="large"
         onChange={handleInputChange} />
         </Form.Group>
       <Form.Field
@@ -74,7 +73,7 @@ export default function SigninFormular({closeModal}) {
       <Button 
       fluid
        type='submit'
-       size="mini"
+       size="large"
        >
        Submit signin formular
       </Button>

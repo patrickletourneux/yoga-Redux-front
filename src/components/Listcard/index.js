@@ -11,7 +11,7 @@ import {
   addFavoritePosition,
   deleteFavoritePosition,
   changeDetailPosition,
-} from '../../actions';
+} from '../../actions/positions';
 
 
 function Listcard({
