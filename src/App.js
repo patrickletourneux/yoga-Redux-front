@@ -58,10 +58,13 @@ function App() {
             <RequireAuth>
               <div>
                 <h3>details Page of the posture</h3>
-                <Listcard
-                  data={[detailPosition]}
-                  singleCardPage
-                />
+                {detailPosition.sanskrit_name
+                  && (
+                  <Listcard
+                    data={[detailPosition]}
+                    singleCardPage
+                  />
+                  )}
               </div>
             </RequireAuth>
           )}

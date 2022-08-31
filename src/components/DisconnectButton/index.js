@@ -7,12 +7,19 @@ import {
 }
   from '../../actions/user';
 
+import {
+  initialiseDataPosition,
+}
+  from '../../actions/positions';
+
 function DisconnectButton() {
   const dispatch = useDispatch();
   const userPassword = useSelector((state) => state.user.userPassword);
 
   const handleDisconnectUser = () => {
     dispatch(initialiseUser());
+    dispatch(initialiseDataPosition());
+    sessionStorage.clear();
   };
 
   return (

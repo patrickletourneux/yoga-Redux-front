@@ -4,6 +4,7 @@ import {
   ADD_FAVORITE_POSITION,
   DELETE_FAVORITE_POSITION,
   CHANGE_DETAIL_POSITION,
+  INITIALISE_DATA_POSITION,
 
 }
   from '../../actions/positions';
@@ -60,6 +61,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         detailPosition: position,
+      };
+    }
+    case INITIALISE_DATA_POSITION: {
+      return {
+        ...initialState,
       };
     }
     default:

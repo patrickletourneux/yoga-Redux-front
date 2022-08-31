@@ -16,7 +16,7 @@ const submitSigninFormular = (store) => (next) => (action) => {
         console.log('submit signin formular response.data', response.data);
         store.dispatch(changeIsUserConnectedToTrue(true, response.data.user));
         store.dispatch(changeErrorMessageSigninFormular(''));
-        next(action);
+        sessionStorage.setItem('tokenJWT', `bearer ${response.data.token}`);
       })
         .catch((error) => {
           console.log('error ', error);

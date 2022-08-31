@@ -37,13 +37,11 @@ function ModalSignin() {
         >
           Signin
         </Button>
-)}
+      )}
     >
       <Modal.Header>Signin Modal</Modal.Header>
       <Modal.Content>
-        <SigninFormular
-          closeModal={() => setOpen(false)}
-        />
+        <SigninFormular />
       </Modal.Content>
       <Modal.Actions>
         <Button color="black" onClick={() => handleCloseModale()}>
