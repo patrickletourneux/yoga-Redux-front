@@ -13,6 +13,7 @@ function DisconnectButton() {
 
   const handleDisconnectUser = () => {
     dispatch(initialiseUser());
+    sessionStorage.clear();
   };
 
   return (
