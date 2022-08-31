@@ -16,9 +16,9 @@ export default function SigninFormular({closeModal}) {
   const dispatch = useDispatch();
 
   // const userPseudonym = useSelector((state) => state.userPseudonym);
-  const userEmail = useSelector((state) => state.userEmail);
-  const userPassword = useSelector((state) => state.userPassword);
-  const errorMessageSigninFormular = useSelector((state) => state.errorMessageSigninFormular);
+  const userEmail = useSelector((state) => state.user.userEmail);
+  const userPassword = useSelector((state) => state.user.userPassword);
+  const errorMessageSigninFormular = useSelector((state) => state.user.errorMessageSigninFormular);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ export default function SigninFormular({closeModal}) {
       widths='equal'
       >
       <Form.Input
-      fluid
+        // fluid
         required
         className="form__input"
         type="email"

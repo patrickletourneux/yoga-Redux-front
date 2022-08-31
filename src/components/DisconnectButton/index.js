@@ -9,7 +9,7 @@ from '../../actions';
 
 const DisconnectButton = () => {
     const dispatch = useDispatch();
-    const userPassword = useSelector((state) => state.userPassword);
+    const userPassword = useSelector((state) => state.user.userPassword);
 
     const handleDisconnectUser = (event) => {
         dispatch(initialiseUser())

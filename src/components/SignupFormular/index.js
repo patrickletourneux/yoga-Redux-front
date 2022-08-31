@@ -15,10 +15,10 @@ import './styles.css';
 export default function SignupFormular({closeModal}) {
   const dispatch = useDispatch();
 
-  const userPseudonym = useSelector((state) => state.userPseudonym);
-  const userEmail = useSelector((state) => state.userEmail);
-  const userPassword = useSelector((state) => state.userPassword);
-  const errorMessageSignupFormular = useSelector((state) => state.errorMessageSignupFormular);
+  const userPseudonym = useSelector((state) => state.user.userPseudonym);
+  const userEmail = useSelector((state) => state.user.userEmail);
+  const userPassword = useSelector((state) => state.user.userPassword);
+  const errorMessageSignupFormular = useSelector((state) => state.user.errorMessageSignupFormular);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -49,7 +49,7 @@ export default function SignupFormular({closeModal}) {
       >
 
       <Form.Input
-        fluid
+        // fluid
         className="form__input"
         type="text"
         label="pseudonym"

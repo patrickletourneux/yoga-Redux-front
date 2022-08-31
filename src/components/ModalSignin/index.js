@@ -13,7 +13,7 @@ from '../../actions'
 function ModalSignin() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
-  const isUserConnected = useSelector((state) => state.isUserConnected);
+  const isUserConnected = useSelector((state) => state.user.isUserConnected);
   
   useEffect(() => {
     setOpen(false) 

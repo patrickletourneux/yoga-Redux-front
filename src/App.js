@@ -15,8 +15,8 @@ import './styles.css';
 // == Composant
 function App() {
 
-  const favoritesPositions = useSelector((state) => state.favoritePositions);
-  const detailPosition = useSelector((state) => state.detailPosition);
+  const favoritesPositions = useSelector((state) => state.positions.favoritePositions);
+  const detailPosition = useSelector((state) => state.positions.detailPosition);
 
   const filteredPositions = useSelector(selectFilteredPositions());
 

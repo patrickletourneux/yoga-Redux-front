@@ -8,7 +8,7 @@ import DisconnectButton from '../DisconnectButton';
 
 
 function Header(props) {
-  const isUserConnected = useSelector((state) => state.isUserConnected);
+  const isUserConnected = useSelector((state) => state.user.isUserConnected);
   return (
     <div className="marginbot">
       <Head as="h1" textAlign="center">

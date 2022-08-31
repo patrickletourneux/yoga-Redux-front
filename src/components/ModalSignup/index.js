@@ -13,7 +13,7 @@ from '../../actions'
 function ModalSignup() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
-  const errorMessageSignupFormular = useSelector((state) => state.errorMessageSignupFormular);
+  const errorMessageSignupFormular = useSelector((state) => state.user.errorMessageSignupFormular);
 
   useEffect(() => {
     if (errorMessageSignupFormular.length >0)
