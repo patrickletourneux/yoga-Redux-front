@@ -1,54 +1,57 @@
-import React, { useEffect } from 'react'
-import SigninFormular from '../SigninFormular';
+import React, { useEffect } from 'react';
 import { Button, Modal } from 'semantic-ui-react';
-import { useSelector  } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { 
+import SigninFormular from '../SigninFormular';
+
+import {
   changeErrorMessageSigninFormular,
-  initialiseUser
- } 
-from '../../actions/user'
+  initialiseUser,
+}
+  from '../../actions/user';
 
 function ModalSignin() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const isUserConnected = useSelector((state) => state.user.isUserConnected);
-  
+
   useEffect(() => {
-    setOpen(false) 
-  },[isUserConnected]);
+    setOpen(false);
+  }, [isUserConnected]);
 
   const handleCloseModale = () => {
     dispatch(changeErrorMessageSigninFormular(''));
     dispatch(initialiseUser(''));
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   return (
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button
-      color ='green'
-      size ='mini'
-      >
-        Signin
-      </Button>}
+      trigger={(
+        <Button
+          color="green"
+          size="mini"
+        >
+          Signin
+        </Button>
+)}
     >
       <Modal.Header>Signin Modal</Modal.Header>
-        <Modal.Content>
-          <SigninFormular
-            closeModal = {() => setOpen(false)}/>
-        </Modal.Content>
+      <Modal.Content>
+        <SigninFormular
+          closeModal={() => setOpen(false)}
+        />
+      </Modal.Content>
       <Modal.Actions>
-      <Button color='black' onClick={() => handleCloseModale() }>
+        <Button color="black" onClick={() => handleCloseModale()}>
           Cancel
         </Button>
       </Modal.Actions>
     </Modal>
-  )
+  );
 }
 
-export default ModalSignin
+export default ModalSignin;

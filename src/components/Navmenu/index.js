@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 
-function Navmenu(props) {
+function Navmenu() {
   return (
-    <Menu 
-      compact 
+    <Menu
+      compact
     >
       <Menu.Item
         name="home"

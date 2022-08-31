@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const api = axios.create({
   // GG Url serveur distant
   // baseURL: 'http://54.37.154.200:3001/api/v1/',

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 
 // Selectors
@@ -8,19 +9,15 @@
  * fonction qui retourne les positions filtrées par le searchText du state.positions.
  * @returns filteredPositions without Double value
  */
-export function selectFilteredPositions () {
-  return (state ) => {
-    let filteredPositionsSanskritEnglishwithoutDouble = state.positions.allPositions
-    if (state.positions.searchText !==""){  
-      const filteredPositionsSanskrit = state.positions.allPositions.filter((item) => {
-        return item.sanskrit_name.toLowerCase().includes(state.positions.searchText.toLowerCase())
-      });
-      const filteredPositionsEnglish = state.positions.allPositions.filter((item) => {
-        return item.english_name.toLowerCase().includes(state.positions.searchText.toLowerCase())
-      });
-      const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit,...filteredPositionsEnglish];
-      filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)]
+export function selectFilteredPositions() {
+  return (state) => {
+    let filteredPositionsSanskritEnglishwithoutDouble = state.positions.allPositions;
+    if (state.positions.searchText !== '') {
+      const filteredPositionsSanskrit = state.positions.allPositions.filter((item) => item.sanskrit_name.toLowerCase().includes(state.positions.searchText.toLowerCase()));
+      const filteredPositionsEnglish = state.positions.allPositions.filter((item) => item.english_name.toLowerCase().includes(state.positions.searchText.toLowerCase()));
+      const filteredPositionsSanskritEnglish = [...filteredPositionsSanskrit, ...filteredPositionsEnglish];
+      filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)];
     }
-    return filteredPositionsSanskritEnglishwithoutDouble
-  }
+    return filteredPositionsSanskritEnglishwithoutDouble;
+  };
 }

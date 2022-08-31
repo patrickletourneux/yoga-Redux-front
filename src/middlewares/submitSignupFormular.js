@@ -1,35 +1,31 @@
 import api from '../axiosInstance';
 
-import { 
-  changeErrorMessageSignupFormular
- } 
-from '../actions/user'
+import {
+  changeErrorMessageSignupFormular,
+}
+  from '../actions/user';
 
 const submitSignupFormular = (store) => (next) => (action) => {
   // console.log('submitSignupFormular middleware', action);
 
-  switch(action.type){
+  switch (action.type) {
     case 'SUBMIT_SIGNUP_FORMULAR':
-        console.log('to send axios')
-        api.post('users', {
+      api.post('users', {
         pseudonym: action.userPseudonym,
         email: action.userEmail,
         password: action.userPassword,
-        }).then((response) => {
-            console.log('submit signup formular response.data',response.data)
-            store.dispatch(changeErrorMessageSignupFormular(''));
-        })
+      }).then((response) => {
+        console.log('submit signup formular response.data', response.data);
+        store.dispatch(changeErrorMessageSignupFormular(''));
+      })
         .catch((error) => {
-          console.log('error ',error);
+          console.log('error ', error);
           store.dispatch(changeErrorMessageSignupFormular(error.response.data.message));
-        })
-        break;
+        });
+      break;
     default:
-        next(action);
+      next(action);
   }
- 
 };
-
-
 
 export default submitSignupFormular;

@@ -1,5 +1,4 @@
-import React from 'react';
-import SearchFormular from '../SearchFormular';
+// import React from 'react';
 // import Card from 'src/components/Card';
 import { useEffect } from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
@@ -7,12 +6,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
-import { 
+import SearchFormular from '../SearchFormular';
+import {
   addFavoritePosition,
   deleteFavoritePosition,
   changeDetailPosition,
 } from '../../actions/positions';
-
 
 function Listcard({
   data,
@@ -37,14 +36,14 @@ function Listcard({
 
   useEffect(() => {
     // console.log('LISTCARD NOUVEAU RENDU');
-  }); 
+  });
 
   return (
     <div className="marginbot">
-      {homePage && 
-      (<SearchFormular>
-      </SearchFormular>)
-      }
+      {homePage
+      && (
+      <SearchFormular />
+      )}
       <Card.Group
         itemsPerRow={3}
         stackable
@@ -73,7 +72,19 @@ function Listcard({
                 <Card.Description>
                   {item.english_name}
                   {singleCardPage && (
-                  <p>lLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>)}
+                  <p>
+                    lLorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry s
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.
+                  </p>
+                  )}
                 </Card.Description>
                 {favoritesPage
                 && (
@@ -117,21 +128,15 @@ Listcard.propTypes = {
     english_name: PropTypes.string,
     sanskrit_name: PropTypes.string,
   })),
-  addToFavoritesPositions: PropTypes.func,
-  deleteToFavoritesPositions: PropTypes.func,
-  seeDetailCardOnClick: PropTypes.func,
   favoritesPage: PropTypes.bool,
   homePage: PropTypes.bool,
-  detailPage: PropTypes.bool,
+  singleCardPage: PropTypes.bool,
 };
 
 Listcard.defaultProps = {
   data: [],
   favoritesPage: false,
   homePage: false,
-  detailPage: false,
-  addToFavoritesPositions: function () {},
-  deleteToFavoritesPositions: function () {},
-  seeDetailCardOnClick: function () {},
+  singleCardPage: false,
 };
 export default Listcard;

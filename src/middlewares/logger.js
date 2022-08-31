@@ -5,7 +5,7 @@
 // ici on utilise la technique du currying, de faire un param par fonction
 // toutes les actions qui sont dispatchées, vont passer par les middlewares tour par tour
 const logger = (store) => (next) => (action) => {
-  const state = store.getState();
+  // const state = store.getState();
   console.log('Logger middleware: ', action);
   // console.log('state ',state)
 
