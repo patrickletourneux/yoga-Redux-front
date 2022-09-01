@@ -11,9 +11,9 @@ const submitSignupFormular = (store) => (next) => (action) => {
   switch (action.type) {
     case 'SUBMIT_SIGNUP_FORMULAR':
       api.post('users', {
-        pseudonym: action.userPseudonym,
-        email: action.userEmail,
-        password: action.userPassword,
+        pseudonym: action.pseudonym,
+        email: action.email,
+        password: action.password,
       }).then((response) => {
         console.log('submit signup formular response.data', response.data);
         store.dispatch(changeErrorMessageSignupFormular(''));

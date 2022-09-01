@@ -8,9 +8,9 @@ import {
   from '../../actions/user';
 
 const initialState = {
-  userPseudonym: '',
-  userEmail: '',
-  userPassword: '',
+  pseudonym: '',
+  email: '',
+  password: '',
   isUserConnected: false,
   errorMessageSigninFormular: '',
   errorMessageSignupFormular: '',

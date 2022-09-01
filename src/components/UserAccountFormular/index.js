@@ -5,18 +5,19 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
   changeInput,
-  submitSigninFormular,
+  // submitSigninFormular,
 } from '../../actions/user';
 
 import './styles.css';
 
-export default function SigninFormular() {
+export default function UserAccountFormular() {
   const dispatch = useDispatch();
 
   // const pseudonym = useSelector((state) => state.pseudonym);
+  const pseudonym = useSelector((state) => state.user.pseudonym);
   const email = useSelector((state) => state.user.email);
   const password = useSelector((state) => state.user.password);
-  const errorMessageSigninFormular = useSelector((state) => state.user.errorMessageSigninFormular);
+  // const errorMessageSigninFormular = useSelector((state) => state.user.errorMessageSigninFormular);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -24,26 +25,35 @@ export default function SigninFormular() {
     dispatch(action);
   };
 
-  const handleSubmitSigninFormular = (event) => {
-    const action = submitSigninFormular(email, password);
-    dispatch(action);
+  const handleSubmitUserAccountFormular = (event) => {
+    // const action = submitSigninFormular(email, password);
+    // dispatch(action);
     event.preventDefault();
   };
 
   return (
     <div>
-      <h4>Signin Formular</h4>
+      <h4>User Account Formular</h4>
       <Form
         className="form marginBottom"
-        id="formSignupFormular"
+        id="UserAccountFormular"
         size="mini"
-        onSubmit={handleSubmitSigninFormular}
+        onSubmit={handleSubmitUserAccountFormular}
       >
         <Form.Group
           widths="equal"
         >
           <Form.Input
-        // fluid
+            required
+            className="form__input"
+            type="pseudonym"
+            label="pseudonym"
+            name="pseudonym"
+            value={pseudonym}
+            size="large"
+            onChange={handleInputChange}
+          />
+          <Form.Input
             required
             className="form__input"
             type="email"
@@ -64,6 +74,28 @@ export default function SigninFormular() {
             size="large"
             onChange={handleInputChange}
           />
+          <Form.Input
+            fluid
+            required
+            className="form__input"
+            type="password"
+            label="new password"
+            name="newPassword"
+            value=""
+            size="large"
+            onChange={handleInputChange}
+          />
+          <Form.Input
+            fluid
+            required
+            className="form__input"
+            type="password"
+            label="confirm new password"
+            name="newPasswordconfirm"
+            value=""
+            size="large"
+            onChange={handleInputChange}
+          />
         </Form.Group>
         <Form.Field
           required
@@ -73,18 +105,18 @@ export default function SigninFormular() {
           type="submit"
           size="large"
         >
-          Submit signin formular
+          Submit Modifications
         </Button>
 
       </Form>
-      {
+      {/* {
       errorMessageSigninFormular.length > 0
       && (
       <Message negative>
         <Message.Header>{errorMessageSigninFormular}</Message.Header>
       </Message>
       )
-    }
+      } */}
 
     </div>
   );

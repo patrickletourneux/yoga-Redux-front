@@ -15,9 +15,9 @@ import './styles.css';
 export default function SignupFormular() {
   const dispatch = useDispatch();
 
-  const userPseudonym = useSelector((state) => state.user.userPseudonym);
-  const userEmail = useSelector((state) => state.user.userEmail);
-  const userPassword = useSelector((state) => state.user.userPassword);
+  const pseudonym = useSelector((state) => state.user.pseudonym);
+  const email = useSelector((state) => state.user.email);
+  const password = useSelector((state) => state.user.password);
   const errorMessageSignupFormular = useSelector((state) => state.user.errorMessageSignupFormular);
 
   const handleInputChange = (event) => {
@@ -27,7 +27,7 @@ export default function SignupFormular() {
   };
 
   const handleSubmitSignupFormular = (event) => {
-    const action = submitSignupFormular(userPseudonym, userEmail, userPassword);
+    const action = submitSignupFormular(pseudonym, email, password);
     dispatch(action);
     dispatch(initialiseUser());
     event.preventDefault();
@@ -51,8 +51,8 @@ export default function SignupFormular() {
             className="form__input"
             type="text"
             label="pseudonym"
-            name="userPseudonym"
-            value={userPseudonym}
+            name="pseudonym"
+            value={pseudonym}
             size="large"
             onChange={handleInputChange}
             required
@@ -63,8 +63,8 @@ export default function SignupFormular() {
             className="form__input"
             type="email"
             label="email"
-            name="userEmail"
-            value={userEmail}
+            name="email"
+            value={email}
             size="large"
             onChange={handleInputChange}
           />
@@ -74,8 +74,8 @@ export default function SignupFormular() {
             className="form__input"
             type="password"
             label="password"
-            name="userPassword"
-            value={userPassword}
+            name="password"
+            value={password}
             size="large"
             onChange={handleInputChange}
           />
