@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
   changeInput,
+  deleteUser,
   // submitSigninFormular,
 } from '../../actions/user';
 
@@ -25,16 +26,17 @@ export default function UserAccountFormular() {
     dispatch(action);
   };
 
-  const handleSubmitUserAccountFormular = (event) => {
-    // const action = submitSigninFormular(email, password);
-    // dispatch(action);
+  const handleClickDeleteUserButton = (event) => {
+    const action = deleteUser();
+    dispatch(action);
+    console.log('clic');
     event.preventDefault();
   };
 
   return (
     <div>
       <h4>User Account Formular</h4>
-      <Form
+      {/* <Form
         className="form marginBottom"
         id="UserAccountFormular"
         size="mini"
@@ -108,11 +110,12 @@ export default function UserAccountFormular() {
           Submit Modifications
         </Button>
 
-      </Form>
+      </Form> */}
       <Button
         type="button"
         size="small"
         color="red"
+        onClick={handleClickDeleteUserButton}
       >
         <Icon name="user delete" />
         Delete User

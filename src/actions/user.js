@@ -9,6 +9,7 @@ export const SUBMIT_SIGNUP_FORMULAR = 'SUBMIT_SIGNUP_FORMULAR';
 export const SUBMIT_SIGNIN_FORMULAR = 'SUBMIT_SIGNIN_FORMULAR';
 export const INITIALISE_USER = 'INITIALISE_USER';
 export const CHANGE_DATA_USER = 'CHANGE_DATA_USER';
+export const DELETE_USER = 'DELETE_USER';
 
 // Action creators
 // fonction qui renvoie un objet de type action
@@ -35,4 +36,7 @@ export const initialiseUser = () => ({
 export const changeDataUser = (modificationsObject) => ({
   type: CHANGE_DATA_USER,
   modificationsObject,
+});
+export const deleteUser = () => ({
+  type: DELETE_USER,
 });
