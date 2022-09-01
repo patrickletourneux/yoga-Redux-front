@@ -1,6 +1,8 @@
 import React from 'react';
 // import { useEffect } from 'react'
-import { Button, Form, Message } from 'semantic-ui-react';
+import {
+  Button, Form, Message, Icon,
+} from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -14,9 +16,7 @@ export default function UserAccountFormular() {
   const dispatch = useDispatch();
 
   // const pseudonym = useSelector((state) => state.pseudonym);
-  const pseudonym = useSelector((state) => state.user.pseudonym);
-  const email = useSelector((state) => state.user.email);
-  const password = useSelector((state) => state.user.password);
+  const user = useSelector((state) => state.user);
   // const errorMessageSigninFormular = useSelector((state) => state.user.errorMessageSigninFormular);
 
   const handleInputChange = (event) => {
@@ -49,7 +49,7 @@ export default function UserAccountFormular() {
             type="pseudonym"
             label="pseudonym"
             name="pseudonym"
-            value={pseudonym}
+            value={user.pseudonym}
             size="large"
             onChange={handleInputChange}
           />
@@ -59,7 +59,7 @@ export default function UserAccountFormular() {
             type="email"
             label="email"
             name="email"
-            value={email}
+            value={user.email}
             size="large"
             onChange={handleInputChange}
           />
@@ -68,9 +68,9 @@ export default function UserAccountFormular() {
             required
             className="form__input"
             type="password"
-            label="password"
+            label="actual password"
             name="password"
-            value={password}
+            value={user.password}
             size="large"
             onChange={handleInputChange}
           />
@@ -109,6 +109,14 @@ export default function UserAccountFormular() {
         </Button>
 
       </Form>
+      <Button
+        type="button"
+        size="small"
+        color="red"
+      >
+        <Icon name="user delete" />
+        Delete User
+      </Button>
       {/* {
       errorMessageSigninFormular.length > 0
       && (

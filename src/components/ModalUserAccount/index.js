@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, Modal } from 'semantic-ui-react';
+import { Button, Modal, Icon } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import UserAccountFormular from '../UserAccountFormular';
 
@@ -20,6 +20,7 @@ function ModalUserAccount() {
         <Button
           size="mini"
         >
+          <Icon name="user" />
           User account
         </Button>
       )}

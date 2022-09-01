@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 
 function Navmenu() {
   return (
@@ -12,7 +12,7 @@ function Navmenu() {
         to="/"
         as={NavLink}
       >
-        home
+        <Icon name="home" />
       </Menu.Item>
 
       <Menu.Item
