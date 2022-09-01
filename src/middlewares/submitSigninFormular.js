@@ -15,6 +15,7 @@ const submitSigninFormular = (store) => (next) => (action) => {
         console.log('submit signin formular response.data', response.data);
         store.dispatch(changeDataUser(
           {
+            id: response.data.user.id,
             password: '',
             isUserConnected: true,
             errorMessageSigninFormular: '',

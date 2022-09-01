@@ -6,6 +6,7 @@ import {
   from '../../actions/user';
 
 const initialState = {
+  id: undefined,
   pseudonym: '',
   email: '',
   password: '',
