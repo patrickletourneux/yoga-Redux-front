@@ -4,8 +4,7 @@ import { Button, Modal } from 'semantic-ui-react';
 import SignupFormular from '../SignupFormular';
 
 import {
-  changeErrorMessageSignupFormular,
-  initialiseUser,
+  changeDataUser,
 }
   from '../../actions/user';
 
@@ -15,12 +14,14 @@ function ModalSignup() {
   const errorMessageSignupFormular = useSelector((state) => state.user.errorMessageSignupFormular);
 
   useEffect(() => {
-    if (errorMessageSignupFormular.length > 0) { setOpen(true); }
+    console.log('modal signup rendu');
+    if (errorMessageSignupFormular.length > 0) {
+      setOpen(true);
+    }
   }, [errorMessageSignupFormular]);
 
   const handleCloseModale = () => {
-    dispatch(changeErrorMessageSignupFormular(''));
-    dispatch(initialiseUser(''));
+    dispatch(changeDataUser({ errorMessageSignupFormular: '' }));
     setOpen(false);
   };
 

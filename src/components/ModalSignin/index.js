@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import SigninFormular from '../SigninFormular';
 
 import {
-  changeErrorMessageSigninFormular,
+  changeDataUser,
   initialiseUser,
 }
   from '../../actions/user';
@@ -20,7 +20,7 @@ function ModalSignin() {
   }, [isUserConnected]);
 
   const handleCloseModale = () => {
-    dispatch(changeErrorMessageSigninFormular(''));
+    dispatch(changeDataUser({ errorMessageSigninFormular: '' }));
     dispatch(initialiseUser(''));
     setOpen(false);
   };

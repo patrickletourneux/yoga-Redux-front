@@ -3,16 +3,16 @@ import {
   Button, Form, Checkbox, Message,
 } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
   changeInput,
   submitSignupFormular,
-  initialiseUser,
 } from '../../actions/user';
 
 import './styles.css';
 
-export default function SignupFormular() {
+export default function SignupFormular({ closeModal }) {
   const dispatch = useDispatch();
 
   const pseudonym = useSelector((state) => state.user.pseudonym);
@@ -29,7 +29,7 @@ export default function SignupFormular() {
   const handleSubmitSignupFormular = (event) => {
     const action = submitSignupFormular(pseudonym, email, password);
     dispatch(action);
-    dispatch(initialiseUser());
+    closeModal();
     event.preventDefault();
   };
 
@@ -108,3 +108,7 @@ export default function SignupFormular() {
     </div>
   );
 }
+
+SignupFormular.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};

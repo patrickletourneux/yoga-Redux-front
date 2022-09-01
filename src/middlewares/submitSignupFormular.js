@@ -1,7 +1,8 @@
 import api from '../axiosInstance';
 
 import {
-  changeErrorMessageSignupFormular,
+  changeDataUser,
+  initialiseUser,
 }
   from '../actions/user';
 
@@ -16,11 +17,15 @@ const submitSignupFormular = (store) => (next) => (action) => {
         password: action.password,
       }).then((response) => {
         console.log('submit signup formular response.data', response.data);
-        store.dispatch(changeErrorMessageSignupFormular(''));
+        store.dispatch(initialiseUser());
       })
         .catch((error) => {
           console.log('error ', error);
-          store.dispatch(changeErrorMessageSignupFormular(error.response.data.message));
+          store.dispatch(changeDataUser(
+            {
+              errorMessageSignupFormular: error.response.data.message,
+            },
+          ));
         });
       break;
     default:

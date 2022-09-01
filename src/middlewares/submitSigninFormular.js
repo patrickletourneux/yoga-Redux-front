@@ -1,9 +1,7 @@
 import api from '../axiosInstance';
 
 import {
-  changeIsUserConnectedToTrue,
-  changeErrorMessageSigninFormular,
-  initialisePasswordToEmptyString,
+  changeDataUser,
 }
   from '../actions/user';
 
@@ -15,14 +13,21 @@ const submitSigninFormular = (store) => (next) => (action) => {
         password: action.password,
       }).then((response) => {
         console.log('submit signin formular response.data', response.data);
-        store.dispatch(changeIsUserConnectedToTrue(true, response.data.user));
-        store.dispatch(changeErrorMessageSigninFormular(''));
-        store.dispatch(initialisePasswordToEmptyString());
+        store.dispatch(changeDataUser(
+          {
+            password: '',
+            isUserConnected: true,
+            errorMessageSigninFormular: '',
+            pseudonym: response.data.user.pseudonym,
+          },
+        ));
         sessionStorage.setItem('tokenJWT', `bearer ${response.data.token}`);
       })
         .catch((error) => {
           console.log('error ', error);
-          store.dispatch(changeErrorMessageSigninFormular(error.response.data.message));
+          store.dispatch(changeDataUser(
+            { errorMessageSigninFormular: error.response.data.message },
+          ));
         });
 
       break;
