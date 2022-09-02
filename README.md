@@ -1,5 +1,15 @@
+## Application yoga to present Yoga position
 
-information
+need to create a user with authentification
+
+## need to use with back end
+
+node.js
+postgresQL
+
+https://github.com/patrickletourneux/yoga-redux-back
+
+## information
 
 add postinstall script following
 https://github.com/Semantic-Org/Semantic-UI/issues/7073
