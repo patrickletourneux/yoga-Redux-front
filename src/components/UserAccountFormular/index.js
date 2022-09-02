@@ -27,7 +27,7 @@ export default function UserAccountFormular() {
   };
 
   const handleClickDeleteUserButton = (event) => {
-    const action = deleteUser();
+    const action = deleteUser(user.id);
     dispatch(action);
     console.log('clic');
     event.preventDefault();

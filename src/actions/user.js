@@ -37,6 +37,7 @@ export const changeDataUser = (modificationsObject) => ({
   type: CHANGE_DATA_USER,
   modificationsObject,
 });
-export const deleteUser = () => ({
+export const deleteUser = (id) => ({
   type: DELETE_USER,
+  id,
 });
