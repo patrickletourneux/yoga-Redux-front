@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header as Head} from 'semantic-ui-react';
+import { Header as Head } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import Navmenu from '../Navmenu';
 import ModalSignup from '../ModalSignup';
@@ -26,7 +26,12 @@ function Header() {
                 <ModalUserAccount />
               </div>
             )}
-          <h2>Yoga /React / semantic UI React / Redux</h2>
+          <h2>
+            Yoga /React / semantic UI React / Redux
+          </h2>
+          <h4>
+            At this time only authentification is managed on dbb backend
+          </h4>
           <Navmenu />
         </Head.Content>
       </Head>
