@@ -5,6 +5,7 @@ import Navmenu from '../Navmenu';
 import ModalSignup from '../ModalSignup';
 import ModalSignin from '../ModalSignin';
 import DisconnectButton from '../DisconnectButton';
+import ModalUserAccount from '../ModalUserAccount';
 
 function Header() {
   const isUserConnected = useSelector((state) => state.user.isUserConnected);
@@ -19,8 +20,18 @@ function Header() {
                 <ModalSignin />
               </div>
             )
-            : <DisconnectButton />}
-          <h2>Yoga / React.js / semantic UI React / Redux</h2>
+            : (
+              <div>
+                <DisconnectButton />
+                <ModalUserAccount />
+              </div>
+            )}
+          <h2>
+            Yoga /React / semantic UI React / Redux
+          </h2>
+          <h4>
+            At this time only authentification is managed on dbb backend
+          </h4>
           <Navmenu />
         </Head.Content>
       </Head>

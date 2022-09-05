@@ -13,9 +13,9 @@ import './styles.css';
 export default function SigninFormular() {
   const dispatch = useDispatch();
 
-  // const userPseudonym = useSelector((state) => state.userPseudonym);
-  const userEmail = useSelector((state) => state.user.userEmail);
-  const userPassword = useSelector((state) => state.user.userPassword);
+  // const pseudonym = useSelector((state) => state.pseudonym);
+  const email = useSelector((state) => state.user.email);
+  const password = useSelector((state) => state.user.password);
   const errorMessageSigninFormular = useSelector((state) => state.user.errorMessageSigninFormular);
 
   const handleInputChange = (event) => {
@@ -25,7 +25,7 @@ export default function SigninFormular() {
   };
 
   const handleSubmitSigninFormular = (event) => {
-    const action = submitSigninFormular(userEmail, userPassword);
+    const action = submitSigninFormular(email, password);
     dispatch(action);
     event.preventDefault();
   };
@@ -48,8 +48,8 @@ export default function SigninFormular() {
             className="form__input"
             type="email"
             label="email"
-            name="userEmail"
-            value={userEmail}
+            name="email"
+            value={email}
             size="large"
             onChange={handleInputChange}
           />
@@ -59,8 +59,8 @@ export default function SigninFormular() {
             className="form__input"
             type="password"
             label="password"
-            name="userPassword"
-            value={userPassword}
+            name="password"
+            value={password}
             size="large"
             onChange={handleInputChange}
           />

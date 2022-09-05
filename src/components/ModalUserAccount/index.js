@@ -1,27 +1,13 @@
 import React, { useEffect } from 'react';
-import { Button, Modal } from 'semantic-ui-react';
+import { Button, Modal, Icon } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
+import UserAccountFormular from '../UserAccountFormular';
 
-import SigninFormular from '../SigninFormular';
-
-import {
-  changeDataUser,
-  initialiseUser,
-}
-  from '../../actions/user';
-
-function ModalSignin() {
+function ModalUserAccount() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
-  const isUserConnected = useSelector((state) => state.user.isUserConnected);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [isUserConnected]);
 
   const handleCloseModale = () => {
-    dispatch(changeDataUser({ errorMessageSigninFormular: '' }));
-    dispatch(initialiseUser(''));
     setOpen(false);
   };
 
@@ -32,16 +18,16 @@ function ModalSignin() {
       open={open}
       trigger={(
         <Button
-          color="green"
           size="mini"
         >
-          Signin
+          <Icon name="user" />
+          User account
         </Button>
       )}
     >
-      <Modal.Header>Signin Modal</Modal.Header>
+      <Modal.Header>User account Modal</Modal.Header>
       <Modal.Content>
-        <SigninFormular />
+        <UserAccountFormular />
       </Modal.Content>
       <Modal.Actions>
         <Button color="black" onClick={() => handleCloseModale()}>
@@ -52,4 +38,4 @@ function ModalSignin() {
   );
 }
 
-export default ModalSignin;
+export default ModalUserAccount;

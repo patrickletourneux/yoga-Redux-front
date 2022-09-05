@@ -1,16 +1,15 @@
 import {
-  CHANGE_IS_USER_CONNECTED_TO_TRUE,
   INITIALISE_USER,
-  CHANGE_ERROR_MESSAGE_SIGNIN_FORMULAR,
-  CHANGE_ERROR_MESSAGE_SIGNUP_FORMULAR,
   CHANGE_INPUT,
+  CHANGE_DATA_USER,
 }
   from '../../actions/user';
 
 const initialState = {
-  userPseudonym: '',
-  userEmail: '',
-  userPassword: '',
+  id: undefined,
+  pseudonym: '',
+  email: '',
+  password: '',
   isUserConnected: false,
   errorMessageSigninFormular: '',
   errorMessageSignupFormular: '',
@@ -25,22 +24,10 @@ const reducer = (state = initialState, action = {}) => {
         [action.name]: action.value,
       };
     }
-    case CHANGE_IS_USER_CONNECTED_TO_TRUE: {
+    case CHANGE_DATA_USER: {
       return {
         ...state,
-        isUserConnected: true,
-      };
-    }
-    case CHANGE_ERROR_MESSAGE_SIGNIN_FORMULAR: {
-      return {
-        ...state,
-        errorMessageSigninFormular: action.errorMessage,
-      };
-    }
-    case CHANGE_ERROR_MESSAGE_SIGNUP_FORMULAR: {
-      return {
-        ...state,
-        errorMessageSignupFormular: action.errorMessage,
+        ...action.modificationsObject,
       };
     }
     case INITIALISE_USER: {

@@ -91,6 +91,7 @@ function Listcard({
                   id={item.id}
                   size="small"
                   centered
+                  loading="lazy"
                 />
               </Link>
 
