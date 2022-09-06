@@ -36,40 +36,31 @@ export default function SigninFormular() {
       <Form
         className="form marginBottom"
         id="formSignupFormular"
-        size="mini"
         onSubmit={handleSubmitSigninFormular}
       >
-        <Form.Group
-          widths="equal"
-        >
-          <Form.Input
-        // fluid
-            required
-            className="form__input"
-            type="email"
-            label="email"
-            name="email"
-            value={email}
-            size="large"
-            onChange={handleInputChange}
-          />
-          <Form.Input
-            fluid
-            required
-            className="form__input"
-            type="password"
-            label="password"
-            name="password"
-            value={password}
-            size="large"
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+        <Form.Input
+          required
+          className="form__input"
+          type="email"
+          label="email"
+          name="email"
+          value={email}
+          onChange={handleInputChange}
+        />
+        <Form.Input
+          required
+          className="form__input"
+          type="password"
+          label="password"
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+        />
         <Form.Field
           required
         />
         <Button
-          fluid
+          floated="left"
           type="submit"
           size="large"
         >

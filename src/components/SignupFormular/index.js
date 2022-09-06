@@ -39,47 +39,35 @@ export default function SignupFormular({ closeModal }) {
       <Form
         className="form marginBottom"
         id="formSignupFormular"
-        size="mini"
         onSubmit={handleSubmitSignupFormular}
       >
-        <Form.Group
-          widths="equal"
-        >
-
-          <Form.Input
-        // fluid
-            className="form__input"
-            type="text"
-            label="pseudonym"
-            name="pseudonym"
-            value={pseudonym}
-            size="large"
-            onChange={handleInputChange}
-            required
-          />
-          <Form.Input
-            fluid
-            required
-            className="form__input"
-            type="email"
-            label="email"
-            name="email"
-            value={email}
-            size="large"
-            onChange={handleInputChange}
-          />
-          <Form.Input
-            fluid
-            required
-            className="form__input"
-            type="password"
-            label="password"
-            name="password"
-            value={password}
-            size="large"
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+        <Form.Input
+          className="form__input"
+          type="text"
+          label="pseudonym"
+          name="pseudonym"
+          value={pseudonym}
+          onChange={handleInputChange}
+          required
+        />
+        <Form.Input
+          required
+          className="form__input"
+          type="email"
+          label="email"
+          name="email"
+          value={email}
+          onChange={handleInputChange}
+        />
+        <Form.Input
+          required
+          className="form__input"
+          type="password"
+          label="password"
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+        />
         <Form.Field
           required
         >
@@ -89,7 +77,7 @@ export default function SignupFormular({ closeModal }) {
           />
         </Form.Field>
         <Button
-          fluid
+          floated="left"
           type="submit"
           size="large"
         >
