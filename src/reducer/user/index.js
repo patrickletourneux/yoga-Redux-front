@@ -5,7 +5,7 @@ import {
 }
   from '../../actions/user';
 
-const initialState = {
+export const initialState = {
   id: undefined,
   pseudonym: '',
   email: '',
