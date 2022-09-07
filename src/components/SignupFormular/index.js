@@ -42,6 +42,7 @@ export default function SignupFormular({ closeModal }) {
         onSubmit={handleSubmitSignupFormular}
       >
         <Form.Input
+          id="pseudonym"
           className="form__input"
           type="text"
           label="pseudonym"
@@ -51,6 +52,7 @@ export default function SignupFormular({ closeModal }) {
           required
         />
         <Form.Input
+          id="email"
           required
           className="form__input"
           type="email"
@@ -60,6 +62,7 @@ export default function SignupFormular({ closeModal }) {
           onChange={handleInputChange}
         />
         <Form.Input
+          id="password"
           required
           className="form__input"
           type="password"
