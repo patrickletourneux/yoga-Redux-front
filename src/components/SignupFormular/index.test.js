@@ -21,7 +21,7 @@ describe('SignupFormular', () => {
     );
     // debug();
     // console.log(screen)
-    screen.debug();
+    // screen.debug();
     const text = screen.getByText('Signup Formular');
     expect(text).toBeInTheDocument();
   });
@@ -61,15 +61,45 @@ describe('SignupFormular', () => {
       </Provider>,
     );
 
-    screen.debug();
+    // screen.debug();
 
     fireEvent.change(screen.getByLabelText('password'), {
-      target: { value: 'JavaScript' },
+      target: { value: 'fakePassword' },
     });
 
-    screen.debug();
+    // screen.debug();
     expect(screen.getByLabelText('password')).toBeInTheDocument();
     expect(screen.getByLabelText('password')).toHaveAttribute('value');
-    expect(screen.getByLabelText('password')).toHaveValue('JavaScript');
+    expect(screen.getByLabelText('password')).toHaveValue('fakePassword');
+  });
+  test('submit form modification of the store', () => {
+    const { container } = render(
+      <Provider store={store}>
+        <SignupFormular
+          closeModal={() => console.log('submit SignupFormular')}
+        />
+      </Provider>,
+    );
+
+    fireEvent.change(screen.getByLabelText('password'), {
+      target: { value: 'fakePassword' },
+    });
+
+    fireEvent.change(screen.getByLabelText('email'), {
+      target: { value: 'fakeEmail' },
+    });
+    fireEvent.change(screen.getByLabelText('pseudonym'), {
+      target: { value: 'fakePseudonym' },
+    });
+
+    fireEvent.submit(container.querySelectorAll('form')[0]);
+
+    const state = store.getState();
+    // console.log('state.user ', state.user);
+
+    // screen.debug();
+    expect(state.user.email).toEqual('fakeEmail');
+    expect(state.user.password).toEqual('fakePassword');
+    expect(state.user.pseudonym).toEqual('fakePseudonym');
   });
 });
