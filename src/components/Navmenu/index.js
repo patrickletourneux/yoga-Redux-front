@@ -29,6 +29,13 @@ function Navmenu() {
       >
         detail
       </Menu.Item>
+      <Menu.Item
+        name="blog"
+        to="/blog"
+        as={NavLink}
+      >
+        blog
+      </Menu.Item>
     </Menu>
   );
 }

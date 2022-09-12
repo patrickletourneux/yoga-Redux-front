@@ -7,6 +7,7 @@ import Header from './components/Header';
 import RequireAuth from './components/RequireAuth';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
+import Blog from './components/Blog';
 
 import { selectFilteredPositions } from './selectors';
 
@@ -67,6 +68,17 @@ function App() {
                   )}
               </div>
             </RequireAuth>
+          )}
+        />
+        <Route
+          exact
+          path="/blog"
+          element={(
+            // <RequireAuth>
+            <div>
+              <Blog />
+            </div>
+            // </RequireAuth>
           )}
         />
       </Routes>
