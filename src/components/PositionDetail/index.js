@@ -2,12 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Card, Image } from 'semantic-ui-react';
+import { findPositionById } from '../../selectors';
 
 function PositionDetail() {
   const params = useParams();
 
-  const AllPositions = useSelector((state) => state.positions.allPositions);
-  const position = AllPositions.find((item) => item.id === parseInt(params.id, 10));
+  const position = useSelector(findPositionById(parseInt(params.id, 10)));
 
   const text = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 

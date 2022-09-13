@@ -9,7 +9,7 @@
  * fonction qui retourne les positions filtrées par le searchText du state.positions.
  * @returns filteredPositions without Double value
  */
-export function selectFilteredPositions() {
+export function selectFilteredPositionsBySearchText() {
   return (state) => {
     let filteredPositionsSanskritEnglishwithoutDouble = state.positions.allPositions;
     if (state.positions.searchText !== '') {
@@ -19,5 +19,12 @@ export function selectFilteredPositions() {
       filteredPositionsSanskritEnglishwithoutDouble = [...new Set(filteredPositionsSanskritEnglish)];
     }
     return filteredPositionsSanskritEnglishwithoutDouble;
+  };
+}
+export function findPositionById(id) {
+  return (state) => {
+    const AllPositions = state.positions.allPositions;
+    const position = AllPositions.find((item) => item.id === id);
+    return position;
   };
 }

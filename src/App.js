@@ -10,14 +10,14 @@ import Footer from './components/Footer';
 import Blog from './components/Blog';
 import PositionDetail from './components/PositionDetail';
 
-import { selectFilteredPositions } from './selectors';
+import { selectFilteredPositionsBySearchText } from './selectors';
 
 import './styles.css';
 
 // == Composant
 function App() {
   const favoritesPositions = useSelector((state) => state.positions.favoritePositions);
-  const filteredPositions = useSelector(selectFilteredPositions());
+  const filteredPositions = useSelector(selectFilteredPositionsBySearchText());
 
   useEffect(() => {
     // console.log('APP NOUVEAU RENDU');
