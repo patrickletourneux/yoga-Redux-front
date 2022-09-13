@@ -73,6 +73,17 @@ function App() {
             </RequireAuth>
           )}
         />
+        <Route
+          exact
+          path="*"
+          element={(
+            // <RequireAuth>
+            <div>
+              404
+            </div>
+            // </RequireAuth>
+          )}
+        />
       </Routes>
       <Footer />
     </div>
