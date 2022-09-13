@@ -23,13 +23,6 @@ function Navmenu() {
         favorites
       </Menu.Item>
       <Menu.Item
-        name="detail"
-        to="/singleCard"
-        as={NavLink}
-      >
-        detail
-      </Menu.Item>
-      <Menu.Item
         name="blog"
         to="/blog"
         as={NavLink}

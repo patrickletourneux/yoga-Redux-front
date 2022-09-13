@@ -8,6 +8,7 @@ import RequireAuth from './components/RequireAuth';
 import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 import Blog from './components/Blog';
+import PositionDetail from './components/PositionDetail';
 
 import { selectFilteredPositions } from './selectors';
 
@@ -16,8 +17,6 @@ import './styles.css';
 // == Composant
 function App() {
   const favoritesPositions = useSelector((state) => state.positions.favoritePositions);
-  const detailPosition = useSelector((state) => state.positions.detailPosition);
-
   const filteredPositions = useSelector(selectFilteredPositions());
 
   useEffect(() => {
@@ -54,31 +53,24 @@ function App() {
         />
         <Route
           exact
-          path="/singleCard"
+          path="/blog"
           element={(
             <RequireAuth>
               <div>
-                <h3>details Page of the posture</h3>
-                {detailPosition.sanskrit_name
-                  && (
-                  <Listcard
-                    data={[detailPosition]}
-                    singleCardPage
-                  />
-                  )}
+                <Blog />
               </div>
             </RequireAuth>
           )}
         />
         <Route
           exact
-          path="/blog"
+          path="/position/:id"
           element={(
-            // <RequireAuth>
-            <div>
-              <Blog />
-            </div>
-            // </RequireAuth>
+            <RequireAuth>
+              <div>
+                <PositionDetail />
+              </div>
+            </RequireAuth>
           )}
         />
       </Routes>

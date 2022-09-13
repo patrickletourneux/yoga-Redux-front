@@ -3,7 +3,7 @@ import {
   INITIALISE_FILTERED_POSITIONS,
   ADD_FAVORITE_POSITION,
   DELETE_FAVORITE_POSITION,
-  CHANGE_DETAIL_POSITION,
+  // CHANGE_DETAIL_POSITION,
   INITIALISE_DATA_POSITION,
 
 }
@@ -56,13 +56,13 @@ const reducer = (state = initialState, action = {}) => {
         favoritePositions: positions,
       };
     }
-    case CHANGE_DETAIL_POSITION: {
-      const position = state.allPositions.find((item) => item.id.toString() === action.id);
-      return {
-        ...state,
-        detailPosition: position,
-      };
-    }
+    // case CHANGE_DETAIL_POSITION: {
+    //   const position = state.allPositions.find((item) => item.id.toString() === action.id);
+    //   return {
+    //     ...state,
+    //     detailPosition: position,
+    //   };
+    // }
     case INITIALISE_DATA_POSITION: {
       return {
         ...initialState,
