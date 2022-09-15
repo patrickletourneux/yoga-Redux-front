@@ -22,7 +22,7 @@ const submitSigninFormular = (store) => (next) => (action) => {
             pseudonym: response.data.user.pseudonym,
           },
         ));
-        sessionStorage.setItem('tokenJWT', `bearer ${response.data.token}`);
+        sessionStorage.setItem('tokenJWT', `Bearer ${response.data.token}`);
       })
         .catch((error) => {
           console.log('error ', error);

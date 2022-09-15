@@ -5,6 +5,7 @@ const api = axios.create({
   // baseURL: 'http://54.37.154.200:3001/api/v1/',
   // GG Url serveur local
   baseURL: 'http://localhost:3001/api/v1/',
+  headers: { authorization: `${sessionStorage.getItem('tokenJWT')}` },
 });
 
 export default api;
