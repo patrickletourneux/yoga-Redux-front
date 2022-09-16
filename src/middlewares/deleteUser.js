@@ -2,6 +2,7 @@ import api from '../axiosInstance';
 
 import {
   initialiseUser,
+  changeDataUser,
 }
   from '../actions/user';
 
@@ -11,6 +12,11 @@ const deleteUserMiddleware = (store) => (next) => (action) => {
       api.delete(`users/${action.id}`)
         .then((response) => {
           store.dispatch(initialiseUser());
+          store.dispatch(changeDataUser(
+            {
+              notification: 'utilisateur supprimmé',
+            },
+          ));
           sessionStorage.clear();
         })
         .catch((error) => {

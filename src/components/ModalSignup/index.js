@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Modal } from 'semantic-ui-react';
+
 import SignupFormular from '../SignupFormular';
 
 import {
@@ -21,7 +22,10 @@ function ModalSignup() {
   }, [errorMessageSignupFormular]);
 
   const handleCloseModale = () => {
-    dispatch(changeDataUser({ errorMessageSignupFormular: '' }));
+    dispatch(changeDataUser({
+      errorMessageSignupFormular: '',
+    }));
+
     setOpen(false);
   };
 

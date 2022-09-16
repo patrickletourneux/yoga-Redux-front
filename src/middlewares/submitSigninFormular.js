@@ -20,6 +20,7 @@ const submitSigninFormular = (store) => (next) => (action) => {
             isUserConnected: true,
             errorMessageSigninFormular: '',
             pseudonym: response.data.user.pseudonym,
+            notification: `utilisateur ${response.data.user.pseudonym} connecté`,
           },
         ));
         sessionStorage.setItem('token', `Bearer ${response.data.token}`);

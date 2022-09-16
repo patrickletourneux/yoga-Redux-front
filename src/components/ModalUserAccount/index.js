@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, Modal, Icon } from 'semantic-ui-react';
-import { useSelector, useDispatch } from 'react-redux';
 import UserAccountFormular from '../UserAccountFormular';
 
 function ModalUserAccount() {
   const [open, setOpen] = React.useState(false);
-  const dispatch = useDispatch();
 
   const handleCloseModale = () => {
     setOpen(false);

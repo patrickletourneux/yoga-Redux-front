@@ -9,6 +9,7 @@ import Listcard from './components/Listcard';
 import Footer from './components/Footer';
 import Blog from './components/Blog';
 import PositionDetail from './components/PositionDetail';
+import UserNotification from './components/UserNotification';
 
 import { selectFilteredPositionsBySearchText } from './selectors';
 
@@ -20,12 +21,13 @@ function App() {
   const filteredPositions = useSelector(selectFilteredPositionsBySearchText());
 
   useEffect(() => {
-    // console.log('APP NOUVEAU RENDU');
+    console.log('APP NOUVEAU RENDU');
   });
 
   return (
     <div className="app">
       <Header />
+      <UserNotification />
       <Routes>
         <Route
           exact

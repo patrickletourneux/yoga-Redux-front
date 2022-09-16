@@ -3,9 +3,10 @@
 import { useEffect } from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import SearchFormular from '../SearchFormular';
 import {
   addFavoritePosition,
@@ -30,7 +31,7 @@ function Listcard({
   };
 
   useEffect(() => {
-    // console.log('LISTCARD NOUVEAU RENDU');
+    console.log('LISTCARD NOUVEAU RENDU');
   });
 
   return (

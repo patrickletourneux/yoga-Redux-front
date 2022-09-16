@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import {
   initialiseUser,
+  changeDataUser,
 }
   from '../../actions/user';
 
@@ -18,6 +19,7 @@ function DisconnectButton() {
   const handleDisconnectUser = () => {
     dispatch(initialiseUser());
     dispatch(initialiseDataPosition());
+    dispatch(changeDataUser({ notification: 'utilisateur déconnecté' }));
     sessionStorage.clear();
   };
 

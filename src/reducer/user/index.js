@@ -2,6 +2,7 @@ import {
   INITIALISE_USER,
   CHANGE_INPUT,
   CHANGE_DATA_USER,
+  CHANGE_USER_NOTIFICATION,
 }
   from '../../actions/user';
 
@@ -14,6 +15,7 @@ export const initialState = {
   errorMessageSigninFormular: '',
   errorMessageSignupFormular: '',
   errorStatusCode: '',
+  notification: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -33,6 +35,12 @@ const reducer = (state = initialState, action = {}) => {
     case INITIALISE_USER: {
       return {
         ...initialState,
+      };
+    }
+    case CHANGE_USER_NOTIFICATION: {
+      return {
+        ...state,
+        notification: action.notification,
       };
     }
     default:

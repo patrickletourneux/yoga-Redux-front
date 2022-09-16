@@ -18,6 +18,11 @@ const submitSignupFormular = (store) => (next) => (action) => {
       }).then((response) => {
         console.log('submit signup formular response.data', response.data);
         store.dispatch(initialiseUser());
+        store.dispatch(changeDataUser(
+          {
+            notification: 'utilisateur créé',
+          },
+        ));
       })
         .catch((error) => {
           console.log('error ', error);
