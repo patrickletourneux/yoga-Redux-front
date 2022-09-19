@@ -1,5 +1,6 @@
 // == Import
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -11,7 +12,7 @@ import PositionDetail from './components/PositionDetail';
 import UserNotification from './components/UserNotification';
 
 import { selectFilteredPositionsBySearchText } from './selectors';
-import componentRenderLog from './hookCustom/componentRenderLog';
+import useComponentRenderLog from './hookCustom/useComponentRenderLog';
 
 import './styles.css';
 
@@ -20,7 +21,10 @@ function App() {
   const favoritesPositions = useSelector((state) => state.positions.favoritePositions);
   const filteredPositions = useSelector(selectFilteredPositionsBySearchText());
 
-  componentRenderLog('APP');
+  useComponentRenderLog('APP');
+
+  useEffect(() => {
+  }, [favoritesPositions, filteredPositions]);
 
   return (
     <div className="app">

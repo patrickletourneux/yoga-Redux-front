@@ -12,7 +12,7 @@ import {
   addFavoritePosition,
   deleteFavoritePosition,
 } from '../../actions/positions';
-import componentRenderLog from '../../hookCustom/componentRenderLog';
+import useComponentRenderLog from '../../hookCustom/useComponentRenderLog';
 
 function Listcard({
   data,
@@ -31,7 +31,7 @@ function Listcard({
     dispatch(action);
   };
 
-  componentRenderLog('Listcard');
+  useComponentRenderLog('Listcard');
 
   return (
     <div className="marginbot">

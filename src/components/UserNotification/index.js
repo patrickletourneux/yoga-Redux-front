@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import componentRenderLog from '../../hookCustom/componentRenderLog';
+import useComponentRenderLog from '../../hookCustom/useComponentRenderLog';
 
 import 'react-toastify/dist/ReactToastify.css';
 // minified version is also included
@@ -20,7 +20,7 @@ function UserNotification() {
     progress: undefined,
   });
 
-  componentRenderLog('Notification');
+  useComponentRenderLog('Notification');
 
   useEffect(() => {
     if (notification !== '') {
