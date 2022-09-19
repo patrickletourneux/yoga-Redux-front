@@ -10,7 +10,7 @@ const deleteUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case 'DELETE_USER':
       api.delete(`users/${action.id}`)
-        .then((response) => {
+        .then(() => {
           store.dispatch(initialiseUser());
           store.dispatch(changeDataUser(
             {

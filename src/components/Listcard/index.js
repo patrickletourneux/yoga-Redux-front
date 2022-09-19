@@ -1,6 +1,6 @@
 // import React from 'react';
 // import Card from 'src/components/Card';
-import { useEffect } from 'react';
+
 import { Card, Button, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import {
   addFavoritePosition,
   deleteFavoritePosition,
 } from '../../actions/positions';
+import componentRenderLog from '../../hookCustom/componentRenderLog';
 
 function Listcard({
   data,
@@ -30,9 +31,7 @@ function Listcard({
     dispatch(action);
   };
 
-  useEffect(() => {
-    console.log('LISTCARD NOUVEAU RENDU');
-  });
+  componentRenderLog('Listcard');
 
   return (
     <div className="marginbot">

@@ -3,7 +3,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from '../reducer';
 import logger from '../middlewares/logger';
-import userAxios from '../middlewares/userAxios';
 import submitSignupFormular from '../middlewares/submitSignupFormular';
 import submitSigninFormular from '../middlewares/submitSigninFormular';
 import deleteUser from '../middlewares/deleteUser';
@@ -19,7 +18,6 @@ const store = createStore(
   // composeEnhancers(applyMiddleware(logger, auth, websocket)),
   composeEnhancers(applyMiddleware(
     logger,
-    userAxios,
     submitSignupFormular,
     submitSigninFormular,
     deleteUser,
