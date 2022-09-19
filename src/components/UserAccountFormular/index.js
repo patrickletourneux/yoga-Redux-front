@@ -6,7 +6,6 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  changeInput,
   deleteUser,
   // submitSigninFormular,
 } from '../../actions/user';

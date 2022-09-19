@@ -17,6 +17,9 @@ function ModalSignin() {
 
   useEffect(() => {
     setOpen(false);
+    if (isUserConnected) {
+      dispatch(changeDataUser({ notification: 'utilisateur connecté' }));
+    }
   }, [isUserConnected]);
 
   const handleCloseModale = () => {
