@@ -9,7 +9,12 @@ import {
 const deleteUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case 'DELETE_USER':
-      api.delete(`users/${action.id}`)
+      api.delete(
+        `users/${action.id}`,
+        {
+          headers: { Authorization: `${sessionStorage.getItem('token')}` },
+        },
+      )
         .then(() => {
           store.dispatch(initialiseUser());
           store.dispatch(changeDataUser(

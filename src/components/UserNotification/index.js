@@ -23,7 +23,9 @@ function UserNotification() {
   componentRenderLog('Notification');
 
   useEffect(() => {
-    notify(notification);
+    if (notification !== '') {
+      notify(notification);
+    }
   }, [notification]);
 
   return (

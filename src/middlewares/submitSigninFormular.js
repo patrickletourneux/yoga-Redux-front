@@ -12,7 +12,7 @@ const submitSigninFormular = (store) => (next) => (action) => {
         email: action.email,
         password: action.password,
       }).then((response) => {
-        console.log('submit signin formular response.data', response.data);
+        // console.log('submit signin formular response.data', response.data);
         store.dispatch(changeDataUser(
           {
             id: response.data.user.id,
